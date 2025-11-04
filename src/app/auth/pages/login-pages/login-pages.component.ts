@@ -41,27 +41,56 @@ export class LoginPagesComponent {
     }
 
 
-    login(){
-      const email = this.formEmail.value.email!;
-      const password = this.formPassword.value.password!;
-      console.log('Login enviado', {email,password});
-      //aqui se conecta con le backend
-      this.authService.login({email,password}).subscribe({
-        next: (resp) => {
-          console.log('Respuesta del backend',resp);
+  login() {
+    const username = this.formEmail.value.email!;
+    const password = this.formPassword.value.password!;
 
-        //aqui evalua la respuesta y redirige si ok
+    this.authService.login({ username, password }).subscribe({
+      next: (resp) => {
 
-        if(resp.ok){
-          localStorage.setItem('token',resp.token)
-          this.router.navigate(['/movies'])
+        console.log('🔍 RESPUESTA DEL BACKEND COMPLETA:', resp);
+
+        // Guardamos la respuesta cruda para depurar si algo falla
+        localStorage.setItem('DEBUG_RESP', JSON.stringify(resp));
+
+        // ✅ Validación correcta (acepta `status:true` o `ok:true`)
+        if ((resp.status || resp.ok) && resp.data) {
+
+          // ✅ Guarda token desde resp o resp.data (cubre ambas variantes)
+          localStorage.setItem('token', resp.data.token ?? resp.token ?? '');
+
+          // ✅ Guarda usuario si existe
+          localStorage.setItem('usuario', resp.data.usuario ?? resp.usuario ?? '');
+
+          // ✅ Guarda nombre público, en snake_case o camelCase
+          localStorage.setItem('nombre_publico',
+            resp.data.nombre_publico ?? resp.data.nombrePublico ?? ''
+          );
+
+          this.router.navigate(['/movies']);
+
         } else {
+          console.warn('⚠️ Backend respondió pero sin status válido:', resp);
           alert('Credenciales incorrectas');
         }
+
       },
-      error:(err) =>{
-        console.error('Error de login', err);
-        alert('Error de conexion con el servidor');
+      error: (err) => {
+        console.error('❌ Error de login:', err);
+        alert('Error de conexión con el servidor');
+      }
+    });
+  }
+
+
+  logout(){
+    this.authService.logOut().subscribe({
+      next: () => {
+        this.router.navigateByUrl('/login');
+      },
+      error: (err) => {
+        console.error('Error al cerrar sesion', err);
+        alert('Error cerrando sesion')
       }
     });
   }

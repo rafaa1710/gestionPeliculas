@@ -1,0 +1,44 @@
+<mat-sidenav-container class="h-screen">
+
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" class="w-16rem" [opened]="false">
+    <mat-toolbar color="primary">Menú</mat-toolbar>
+
+    <mat-nav-list>
+      <mat-list-item *ngFor="let opcion of sidebarItems" [routerLink]="opcion.url" (click)="sidenav.close()">
+        <mat-icon matListItemIcon>{{ opcion.icon }}</mat-icon>
+        {{ opcion.label }}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- CONTENT -->
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary" class="justify-content-between items-center px-4">
+
+      <!-- ✅ BOTÓN QUE ABRE/CERRA EL MENU -->
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="text-lg font-bold">Gestión de Películas</span>
+
+      <div class="flex items-center align-items-center">
+        <span class="text-base font-medium p-3">{{ nombrePublico }}</span>
+        <mat-icon style="font-size: 25px; padding: 10px;">account_circle</mat-icon>
+
+        <button mat-icon-button color="accent" (click)="logout()" aria-label="Cerrar sesión">
+          <mat-icon style="font-size: 28px;">logout</mat-icon>
+        </button>
+      </div>
+
+    </mat-toolbar>
+
+    <div class="p-4">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
