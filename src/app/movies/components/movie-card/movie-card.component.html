@@ -1,0 +1,8 @@
+<mat-card [routerLink]="['/movies/movie',movie.id]" style="cursor:pointer;">
+  <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{movie.title}}"/>
+  <mat-card-content>
+    <h2>{{movie.title}}</h2>
+    <p class="text-5m">{{movie.release_date}}</p>
+  </mat-card-content>
+
+</mat-card>

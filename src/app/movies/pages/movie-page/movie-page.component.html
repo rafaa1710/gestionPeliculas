@@ -1,0 +1,22 @@
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
+
+<div *ngIf="movie; else loading" class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+
+
+  <div class="col-span-1">
+    <img [src]="MovieImage" [alt]="movie.title" class="w-full rounded shadow"/>
+  </div>
+
+
+
+  <div class="col-span-2 space-y-4">
+    <h1 class="text-3xl font-bold">{{movie.title}}</h1>
+    <p class="text-gray-600 italic">Titulo original: {{movie.original_title}}</p>
+    <p><strong>Fecha de estreno</strong>{{movie.release_date}}</p>
+    <p><strong>Popularidad</strong>{{movie.popularity}}</p>
+    <p><strong>Valoracion media</strong>{{movie.vote_average}}</p>
+    <p><strong>Resumen</strong>{{movie.overview}}</p>
+  </div>
+</div>
