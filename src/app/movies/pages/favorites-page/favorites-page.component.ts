@@ -19,26 +19,39 @@ export class FavoritesPageComponent {
   ) {}
 
 
+
   ngOnInit(): void{
     this.loadFavorites();
   }
 
-  loadFavorites(): void {
+   loadFavorites(): void {
+
     this.favoritesService.getFavorites().subscribe(res => {
 
-  if (!Array.isArray(res)) {
-    console.warn("⚠️ Backend NO devolvió un array:", res);
-    return;
+      console.log("Respuesta backend:", res); // ✅ debug
+
+      // 1️⃣ Validación de respuesta
+      if (!res.status || !Array.isArray(res.data)) {
+        console.warn("⚠️ Backend devolvió un formato inesperado:", res);
+        return;
+      }
+
+      const ids = res.data; // ✅ Aquí sí es un array real
+
+      // 2️⃣ Si está vacío, limpiamos favoritos y salimos
+      if (ids.length === 0) {
+        this.favorites = [];
+        return;
+      }
+
+      // 3️⃣ Convertimos IDs en películas reales usando forkJoin
+      forkJoin(ids.map(id => this.moviesService.movieById(id))).subscribe(movies => {
+        this.favorites = movies;
+      });
+
+    });
+
   }
 
-  const ids = res;
-
-  if (ids.length === 0) return;
-
-  forkJoin(ids.map(id => this.moviesService.movieById(id))).subscribe(movies => {
-    this.favorites = movies;
-  });
-});
-  }
 
 }

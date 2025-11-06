@@ -1,20 +1,24 @@
-import { environment } from './../../../environtments/environments.prod';
-import { HttpClient,  HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {URL_API} from 'src/environtments/environment'
+import { URL_API } from 'src/environtments/environment';
 
-const FAVORITES_API = `${URL_API}/favoritas.php`
+export interface FavoritesResponse {
+  status: boolean;
+  message: string;
+  data: number[];
+}
+
+const FAVORITES_API = `${URL_API}/favoritas.php`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-
-  private getHeader(): HttpHeaders{
+  private getHeader(): HttpHeaders {
     const token = localStorage.getItem('token') || '';
     return new HttpHeaders({
       'Authorization': `Bearer ${token}`,
@@ -22,38 +26,29 @@ export class FavoritesService {
     });
   }
 
-  private favoritesCache: number[] = [];
-
-
-
-
-  addToFavorites(movieId: number): Observable<any> {
+  addToFavorites(movieId: number): Observable<FavoritesResponse> {
     const body = {
       action: 'add',
       movie_id: movieId,
       email: localStorage.getItem('usuario')
     };
-    return this.http.post(FAVORITES_API,body, {headers: this.getHeader()});
-
+    return this.http.post<FavoritesResponse>(FAVORITES_API, body, { headers: this.getHeader() });
   }
 
-  removeFromFavorites(movieId: number):Observable<any>{
+  removeFromFavorites(movieId: number): Observable<FavoritesResponse> {
     const body = {
       action: 'del',
       movie_id: movieId,
       email: localStorage.getItem('usuario')
     };
-    return this.http.post(FAVORITES_API,body, {headers: this.getHeader()});
+    return this.http.post<FavoritesResponse>(FAVORITES_API, body, { headers: this.getHeader() });
   }
 
-  getFavorites():Observable<number[]>{
+  getFavorites(): Observable<FavoritesResponse> {
     const body = {
       action: 'list',
       email: localStorage.getItem('usuario')
-    }
-    return this.http.post<number[]>(FAVORITES_API, body, { headers: this.getHeader()});
+    };
+    return this.http.post<FavoritesResponse>(FAVORITES_API, body, { headers: this.getHeader() });
   }
-
-
-
 }
