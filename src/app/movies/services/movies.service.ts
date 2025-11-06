@@ -39,6 +39,19 @@ export class MoviesService {
     .set('language', 'es-ES')
 
     return this.http.get<Movie>(`${this.apiUrl}/movie/${id}`, {params});
+  }
+
+  //metodo GET con la busqueda del usuario usando el ENDPOINT /search/movie
+  searchMovies(query: string): Observable<Movie[]>{
+    const params = new HttpParams()
+    .set('api_key', this.apiKey)
+    .set('language','es-ES')
+    .set('query',query)
+    .set('page',1)
+    .set('include_adult', false)
+
+    return this.http.get<{ results: Movie[]}>(`${this.apiUrl}/search/movie`, {params})
+    .pipe(map(resp=> resp.results))
 
   }
 

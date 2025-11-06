@@ -1,6 +1,8 @@
+import { FavoritesService} from './../../services/favorites.service';
 import { Component, Input } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../interfaces/movie.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,11 +12,33 @@ import { Movie } from '../../interfaces/movie.interface';
 export class MovieCardComponent {
 
   @Input() movie!: Movie;
+  @Input() isFavorite: boolean = false;
 
-  constructor(private movieService: MoviesService) {}
+  constructor(
+    private movieService: MoviesService,
+    private favoritesService: FavoritesService,
+    private snackBar: MatSnackBar
+  ){}
+
+
 
   getImageUrl(path: string | null):string {
     return this.movieService.getImageUrl(path)
+  }
+
+
+  toggleFavorite():void{
+    if(this.isFavorite){
+      this.favoritesService.removeFromFavorites(this.movie.id).subscribe(() => {
+        this.isFavorite = false;
+        this.snackBar.open('Pelicula eliminada de favoritos','Cerrar', {duration:2000})
+      })
+    }else{
+      this.favoritesService.addToFavorites(this.movie.id).subscribe(() =>{
+        this.isFavorite = true;
+        this.snackBar.open('Pelicula añadida a favoritos','Cerrar', {duration:2000})
+      })
+    }
   }
 
 }

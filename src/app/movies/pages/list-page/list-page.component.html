@@ -1,10 +1,41 @@
-<h1>Películas Populares</h1>
+<h1>{{ searchInput.value ? 'Resultados de búsqueda' : 'Películas Populares' }}</h1>
 <mat-divider></mat-divider>
 
-<div class="grid">
-  <div *ngFor="let movie of movies" class="col-12 5m:col-6 md:col-4 lg:col-3 xl:col-2">
+<!-- 🔍 Barra de búsqueda -->
+<mat-form-field appearance="fill" class="w-full mb-4">
+  <mat-label>Buscar película</mat-label>
+  <input matInput
+         type="text"
+         [formControl]="searchInput"
+         placeholder="Introduzca el título de la película" />
+
+  <!-- ❌ Botón para limpiar -->
+  <button *ngIf="searchInput.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="clearSearch()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<!-- ⏳ Spinner de carga -->
+<mat-progress-spinner
+  *ngIf="loading"
+  mode="indeterminate"
+  color="primary"
+  diameter="40"
+  style="margin: 1rem auto; display: block;">
+</mat-progress-spinner>
+
+<!-- 📽️ Grid de películas -->
+<div class="grid" *ngIf="!loading && movies.length > 0">
+  <div *ngFor="let movie of movies" class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2">
     <app-movie-card [movie]="movie"></app-movie-card>
-
   </div>
-
 </div>
+
+<!-- ⚠️ Mensaje si no hay resultados -->
+<p *ngIf="!loading && movies.length === 0 && searchInput.value" class="text-center mt-4">
+  ❌ No se encontraron películas con ese título.
+</p>

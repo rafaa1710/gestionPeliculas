@@ -1,8 +1,22 @@
-<mat-card [routerLink]="['/movies/movie',movie.id]" style="cursor:pointer;">
-  <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{movie.title}}"/>
-  <mat-card-content>
-    <h2>{{movie.title}}</h2>
-    <p class="text-5m">{{movie.release_date}}</p>
-  </mat-card-content>
+<ng-container *ngIf="movie">
 
-</mat-card>
+  <mat-card style="position: relative">
+    <a [routerLink]="['/movies/movie', movie.id]" style="cursor:pointer;">
+      <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" />
+      <mat-card-content>
+        <h2 class="movie-title text-base font-bold mt-2">{{ movie.title }}</h2>
+
+        <p class="text-5m">{{ movie.release_date }}</p>
+      </mat-card-content>
+    </a>
+
+    <button mat-icon-button
+            (click)="toggleFavorite(); $event.stopPropagation()"
+            style="position: absolute; top: 8px; right: 8px"
+            [color]="isFavorite ? 'warn' : 'primary'"
+            matTooltip="{{ isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos' }}">
+      <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+    </button>
+
+  </mat-card>
+</ng-container>

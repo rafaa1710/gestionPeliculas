@@ -1,0 +1,9 @@
+<h3 class="mb-4">Peliculas favoritas</h3>
+
+<div class="grid mt-4">
+  <div *ngFor="let movie of favorites" class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2">
+    <app-movie-card [movie]="movie" [isFavorite]="true"></app-movie-card>
+
+  </div>
+
+</div>
