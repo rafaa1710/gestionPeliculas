@@ -1,7 +1,7 @@
 <h1>{{ searchInput.value ? 'Resultados de búsqueda' : 'Películas Populares' }}</h1>
 <mat-divider></mat-divider>
 
-<!-- 🔍 Barra de búsqueda -->
+<!--  Barra de búsqueda -->
 <mat-form-field appearance="fill" class="w-full mb-4">
   <mat-label>Buscar película</mat-label>
   <input matInput
@@ -9,7 +9,7 @@
          [formControl]="searchInput"
          placeholder="Introduzca el título de la película" />
 
-  <!-- ❌ Botón para limpiar -->
+  <!-- Botón para limpiar -->
   <button *ngIf="searchInput.value"
           matSuffix
           mat-icon-button

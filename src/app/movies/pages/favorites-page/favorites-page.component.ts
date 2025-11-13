@@ -49,9 +49,16 @@ export class FavoritesPageComponent {
         this.favorites = movies;
       });
 
+
     });
 
+
+
   }
+
+
+
+
 
 
 }

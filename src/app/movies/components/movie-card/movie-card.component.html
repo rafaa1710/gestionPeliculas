@@ -2,11 +2,11 @@
 
   <mat-card style="position: relative">
     <a [routerLink]="['/movies/movie', movie.id]" style="cursor:pointer;">
-      <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" />
+      <img mat-card-image class="poster" [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" />
       <mat-card-content>
-        <h2 class="movie-title text-base font-bold mt-2">{{ movie.title }}</h2>
+        <h2 class="movie-title">{{ movie.title }}</h2>
 
-        <p class="text-5m">{{ movie.release_date }}</p>
+        <p class="movie-release_date">{{ movie.release_date }}</p>
       </mat-card-content>
     </a>
 

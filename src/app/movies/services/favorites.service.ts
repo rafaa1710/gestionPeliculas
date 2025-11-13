@@ -51,4 +51,11 @@ export class FavoritesService {
     };
     return this.http.post<FavoritesResponse>(FAVORITES_API, body, { headers: this.getHeader() });
   }
+
+  toggleFavorite(movieId: number, isFavorite: boolean): Observable<FavoritesResponse> {
+  if (isFavorite) {
+    return this.removeFromFavorites(movieId);
+  }
+  return this.addToFavorites(movieId);
+}
 }

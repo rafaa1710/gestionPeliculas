@@ -1,0 +1,62 @@
+.h-screen {
+  background: linear-gradient(to bottom, #414040, #4b4a4a);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-title h1 {
+  font-size: 2.2rem;
+  color: #679ccef8;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  letter-spacing: 1px;
+  margin: 0;
+}
+mat-card {
+  background: rgba(0, 0, 0, 0.85) !important;
+  color: #ffffff;
+  padding: 2.5rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 25px rgba(49, 48, 48, 0.6) !important;
+}
+h2 {
+  color: #fafafa;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field-flex {
+  background-color: #817f7f !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+}
+
+input {
+  color: #0f0f0f !important;
+}
+
+mat-label {
+  color: #111111 !important;
+}
+
+button[mat-stroked-button] {
+  border-color: #888 !important;
+  color: #ddd !important;
+}
+
+button[mat-stroked-button]:hover {
+  border-color: #fff !important;
+  color: #fff !important;
+}
