@@ -9,21 +9,25 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class LayoutPageComponent {
   nombrePublico: string='';
+  rolUsuario: number = 0;
 
   //  NECESARIO PARA QUE EL HTML NO DE ERROR
   sidebarItems = [
     { label: 'Películas', icon: 'list', url: '/movies/list' },
-    { label: 'Favoritos', icon: 'favorites', url: '/movies/favorites' },
-    { label: 'Perfil', icon: 'profile' ,url: '/auth/profile' }
+    { label: 'Favoritos', icon: 'favorite', url: '/movies/favorites' },
+    { label: 'Buscador', icon: 'search', url: '/movies/search' }
   ];
 
-  constructor(private authService: AuthService,private router: Router){
-    this.nombrePublico = this.authService.getNombrePublico();
-  }
+  constructor(private authService: AuthService,private router: Router){}
 
   ngOnInit(): void {
     this.nombrePublico = this.authService.getNombrePublico();
     console.log('Nombre público cargado 🧠:', this.nombrePublico);
+    this.nombrePublico = this.authService.getNombrePublico();
+    const rol = localStorage.getItem('id_rol');
+    this.rolUsuario = Number(rol);
+
+    this.configurarMenu();
   }
 
 logout(){
@@ -38,5 +42,14 @@ logout(){
   })
 }
 
+configurarMenu() {
+  if (this.rolUsuario === 1) {
+    this.sidebarItems.push({
+      label: 'Gestión de Usuarios',
+      icon: 'group',
+      url: '/users'
+    });
+  }
+}
 
 }

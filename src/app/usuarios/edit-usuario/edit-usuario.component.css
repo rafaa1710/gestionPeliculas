@@ -1,0 +1,15 @@
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.acciones {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}

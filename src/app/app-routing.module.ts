@@ -17,6 +17,10 @@ const routes: Routes = [
     },
 
   { path: '', redirectTo: 'login', pathMatch: 'full'},
+  {
+    path: 'users',
+    loadChildren: () => import('./usuarios/users.module').then(m => m.UsersModule)
+  },
   { path: '**', component: Error404PageComponent}
 ];
 

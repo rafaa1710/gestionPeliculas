@@ -1,0 +1,71 @@
+<div class="container">
+
+  <div class="header">
+    <h2>Gestión de Usuarios</h2>
+    <button mat-raised-button color="primary" (click)="crear()">
+      <mat-icon>add</mat-icon>
+      Crear Usuario
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="usuarios" class="mat-elevation-z2 tabla">
+
+    <!-- ID -->
+    <ng-container matColumnDef="id_usuario">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let u">{{ u.id_usuario }}</td>
+    </ng-container>
+
+    <!-- Usuario -->
+    <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef>Usuario</th>
+      <td mat-cell *matCellDef="let u">{{ u.usuario }}</td>
+    </ng-container>
+
+    <!-- Nombre público -->
+    <ng-container matColumnDef="nombre_publico">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let u">{{ u.nombre_publico }}</td>
+    </ng-container>
+
+    <!-- Rol -->
+    <ng-container matColumnDef="rol">
+      <th mat-header-cell *matHeaderCellDef>Rol</th>
+      <td mat-cell *matCellDef="let u">{{ u.rol }}</td>
+    </ng-container>
+
+    <!-- Habilitado -->
+    <ng-container matColumnDef="habilitado">
+      <th mat-header-cell *matHeaderCellDef>Habilitado</th>
+      <td mat-cell *matCellDef="let u">
+        <mat-icon color="primary" *ngIf="u.habilitado == 1">check_circle</mat-icon>
+        <mat-icon color="warn" *ngIf="u.habilitado == 0">cancel</mat-icon>
+      </td>
+    </ng-container>
+
+    <!-- Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let u">
+
+        <button mat-icon-button color="primary" [routerLink]="['/users/edit', u.id_usuario]">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button mat-icon-button color="warn" [routerLink]="['/users/delete', u.id_usuario]">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+
+
+
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+</div>

@@ -64,8 +64,9 @@ export class LoginPagesComponent {
 
           // ✅ Guarda nombre público, en snake_case o camelCase
           localStorage.setItem('nombre_publico',
-            resp.data.nombre_publico ?? resp.data.nombrePublico ?? ''
-          );
+            resp.data.nombre_publico ?? resp.data.nombrePublico ?? '');
+
+          localStorage.setItem('id_rol', String(resp.data.id_rol ?? 0));
 
           this.router.navigate(['/movies']);
 

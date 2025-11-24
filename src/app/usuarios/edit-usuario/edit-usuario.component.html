@@ -1,0 +1,58 @@
+<div class="container">
+
+  <h2>Editar Usuario</h2>
+
+  <form [formGroup]="formUser" (ngSubmit)="guardar()">
+
+    <!-- Usuario -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Usuario (email)</mat-label>
+      <input matInput formControlName="usuario">
+    </mat-form-field>
+
+    <!-- Nombre público -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Nombre público</mat-label>
+      <input matInput formControlName="nombre_publico">
+    </mat-form-field>
+
+    <!-- Observaciones -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Observaciones</mat-label>
+      <textarea matInput rows="3" formControlName="observaciones"></textarea>
+    </mat-form-field>
+
+    <!-- Rol -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Rol</mat-label>
+      <mat-select formControlName="id_rol">
+        <mat-option *ngFor="let rol of roles" [value]="rol.id">
+          {{ rol.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Habilitado -->
+    <mat-slide-toggle formControlName="habilitado">
+      Usuario habilitado
+    </mat-slide-toggle>
+
+    <br>
+    <br>
+
+    <!-- Cambiar contraseña (opcional) -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Nueva contraseña (opcional)</mat-label>
+      <input type="password" matInput formControlName="password">
+    </mat-form-field>
+
+    <div class="acciones">
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+      <button mat-button color="warn" type="button" (click)="volver()">Cancelar</button>
+    </div>
+
+
+
+  </form>
+
+</div>
