@@ -26,15 +26,16 @@ export class UsersService {
   }
 
   create(body: any) {
-    return this.http.post(this.base, body, { headers: this.getHeaders() });
+    return this.http.post(this.base, body, { headers: this.getHeaders(), responseType: 'text' });
   }
 
   update(body: any) {
-    return this.http.put(this.base, body, { headers: this.getHeaders() });
+    return this.http.put(this.base, body, { headers: this.getHeaders(),
+    responseType: 'text' });
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.base}?id=${id}`, { headers: this.getHeaders() });
+    return this.http.delete(`${this.base}?id=${id}`, { headers: this.getHeaders(), responseType: 'text' });
   }
 
 }

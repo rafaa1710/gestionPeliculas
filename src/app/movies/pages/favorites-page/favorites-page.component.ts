@@ -28,23 +28,23 @@ export class FavoritesPageComponent {
 
     this.favoritesService.getFavorites().subscribe(res => {
 
-      console.log("Respuesta backend:", res); // ✅ debug
+      console.log("Respuesta backend:", res); // debug
 
-      // 1️⃣ Validación de respuesta
+      //Validacion de respuesta
       if (!res.status || !Array.isArray(res.data)) {
-        console.warn("⚠️ Backend devolvió un formato inesperado:", res);
+        console.warn(" Backend devolvió un formato inesperado:", res);
         return;
       }
 
-      const ids = res.data; // ✅ Aquí sí es un array real
+      const ids = res.data; // Aquí si es un array real
 
-      // 2️⃣ Si está vacío, limpiamos favoritos y salimos
+      // si está vaciio, limpio favoritos y salgo
       if (ids.length === 0) {
         this.favorites = [];
         return;
       }
 
-      // 3️⃣ Convertimos IDs en películas reales usando forkJoin
+      // Convierto IDs en peliculas reales usando forkJoin forkJoin usa todas las peticiones en paralelo espera a que recoja todos los datos y despues emite array con todo
       forkJoin(ids.map(id => this.moviesService.movieById(id))).subscribe(movies => {
         this.favorites = movies;
       });

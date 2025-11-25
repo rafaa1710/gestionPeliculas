@@ -25,8 +25,8 @@
     <mat-label>Rol</mat-label>
     <mat-select [(ngModel)]="user.id_rol" name="id_rol">
       <mat-option [value]="1">Administrador</mat-option>
-      <mat-option [value]="2">Supervisor</mat-option>
-      <mat-option [value]="3">Vendedor</mat-option>
+      <mat-option [value]="2">Usuario</mat-option>
+
     </mat-select>
   </mat-form-field>
 
@@ -46,6 +46,15 @@
     <button mat-button color="accent" routerLink="/users">
       Cancelar
     </button>
+
+
+
   </div>
+
+  <br>
+  <button mat-raised-button color="primary" [routerLink]="['/users/list']">
+      <mat-icon>arrow_back</mat-icon>
+       Listado de usuarios
+  </button>
 
 </form>

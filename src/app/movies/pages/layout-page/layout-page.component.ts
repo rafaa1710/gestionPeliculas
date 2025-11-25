@@ -22,7 +22,7 @@ export class LayoutPageComponent {
 
   ngOnInit(): void {
     this.nombrePublico = this.authService.getNombrePublico();
-    console.log('Nombre público cargado 🧠:', this.nombrePublico);
+    console.log('Nombre publico cargado:', this.nombrePublico);
     this.nombrePublico = this.authService.getNombrePublico();
     const rol = localStorage.getItem('id_rol');
     this.rolUsuario = Number(rol);

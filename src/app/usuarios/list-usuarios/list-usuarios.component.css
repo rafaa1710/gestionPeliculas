@@ -14,3 +14,21 @@
 .tabla {
   width: 100%;
 }
+
+/* Header gris */
+.mat-mdc-header-row {
+  background-color: #ebcba2d3 !important;
+}
+
+/* Filas alternas Angular Material v16+ */
+.mdc-data-table__row:nth-of-type(even),
+.mat-mdc-row:nth-of-type(even),
+.mdc-data-table__content .mdc-data-table__row:nth-child(even) {
+  background-color: #f7f7f7 !important;
+}
+
+.mdc-data-table__row:nth-of-type(odd),
+.mat-mdc-row:nth-of-type(odd),
+.mdc-data-table__content .mdc-data-table__row:nth-child(odd) {
+  background-color: #ffffff !important;
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
+import { ListUsuariosComponent } from '../list-usuarios/list-usuarios.component';
 
 @Component({
   selector: 'app-delete-usuario',
@@ -10,6 +11,8 @@ import { UsersService } from '../services/users.service';
 export class DeleteUsuarioComponent {
 
   id!: number;
+  user: any = null;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -19,6 +22,7 @@ export class DeleteUsuarioComponent {
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+
   }
 
   confirmDelete(): void {

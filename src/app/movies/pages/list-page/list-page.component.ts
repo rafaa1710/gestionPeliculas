@@ -11,13 +11,13 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class ListPageComponent implements OnInit{
 
-  // 🎬 Lista de películas
+  // Lista de películas
   public movies: Movie[] = [];
 
-  // 🔍 Campo de búsqueda
+  // Campo de búsqueda
   public searchInput = new FormControl('');
 
-  // ⏳ Indicador de carga
+  // Indicador de carga
   public loading = false;
 
   constructor(private moviesService: MoviesService) {}
@@ -25,13 +25,13 @@ export class ListPageComponent implements OnInit{
   ngOnInit(): void {
     this.loadPopularMovies();
 
-    // 🕓 Escucha cambios en el buscador con un pequeño retardo
+    // Escucha cambios en el buscador con un pequeño retardo esto era porque antes tenia el buscador en el list
     this.searchInput.valueChanges
       .pipe(debounceTime(400))
       .subscribe(value => this.onSearch(value));
   }
 
-  /** 🔹 Carga las películas populares al inicio */
+  /** Carga las películas populares al inicio */
   private loadPopularMovies(): void {
     this.loading = true;
     this.moviesService.getPopularMovie().subscribe({
@@ -40,13 +40,13 @@ export class ListPageComponent implements OnInit{
         this.loading = false;
       },
       error: (err) => {
-        console.error('❌ Error al cargar películas populares:', err);
+        console.error('Error al cargar peliculas populares:', err);
         this.loading = false;
       }
     });
   }
 
-  /** 🔹 Busca películas según el texto escrito */
+  /**  Busca películas según el texto escrito */
   onSearch(value: string | null): void {
     const query = value?.trim();
 
@@ -62,7 +62,7 @@ export class ListPageComponent implements OnInit{
         this.loading = false;
       },
       error: (err) => {
-        console.error('❌ Error al buscar películas:', err);
+        console.error(' Error al buscar peliculas:', err);
         this.loading = false;
       }
     });

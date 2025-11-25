@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPagesComponent } from './pages/login-pages/login-pages.component';
 
 const routes: Routes = [
+  // cuando la ruta vienbe vacia se va al login
   {path: '', component: LoginPagesComponent}
 ];
 

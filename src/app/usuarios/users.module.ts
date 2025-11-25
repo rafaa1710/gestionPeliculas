@@ -15,6 +15,8 @@ import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
 import { DeleteUsuarioComponent } from './delete-usuario/delete-usuario.component';
 import { ListUsuariosComponent } from './list-usuarios/list-usuarios.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatIconModule,
      MatTableModule,
+     MatSlideToggleModule
   ]
 })
 export class UsersModule { }

@@ -12,6 +12,8 @@ export class AuthService{
 
   constructor(private http: HttpClient){ }
 
+
+  // envio las credenciales y me responde si son correctas o no
   login(data: {username: string; password: string}): Observable<any>{
     const body = JSON.stringify(data);
 

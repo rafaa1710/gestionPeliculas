@@ -13,7 +13,7 @@ export class AddUsuarioComponent {
     usuario: '',
     password: '',
     nombre_publico: '',
-    id_rol: 3,            // Por defecto: Vendedor
+    id_rol: 3,
     observaciones: ''
   };
 

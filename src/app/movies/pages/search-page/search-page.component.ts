@@ -21,7 +21,7 @@ export class SearchPageComponent {
   const value = this.searchInput.value?.trim();
 
   if (!value) {
-    this.movies = []; // ✅ limpia resultados
+    this.movies = []; // limpia resultados
     return;
   }
 

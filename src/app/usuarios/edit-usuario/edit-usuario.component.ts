@@ -17,15 +17,16 @@ export class EditUsuarioComponent {
     usuario: ['', Validators.required],
     nombre_publico: ['', Validators.required],
     observaciones: [''],
-    id_rol: ['', Validators.required],
+    id_rol: [null, Validators.required],
     habilitado: [true],
     password: ['']
   });
 
   roles = [
     { id: 1, nombre: 'Administrador' },
-    { id: 2, nombre: 'Supervisor' },
-    { id: 3, nombre: 'Vendedor' }
+    { id: 2, nombre: 'Usuario' },
+
+
   ];
 
   constructor(
@@ -39,41 +40,44 @@ export class EditUsuarioComponent {
 
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.userService.getById(this.userId).subscribe((resp: any) => {
-      console.log("Respuesta GET:", resp);
+  this.userService.getById(this.userId).subscribe((resp: any) => {
+    console.log("Respuesta GET:", resp);
 
-      if (resp.ok && resp.data) {
+    if (resp.status && resp.data) {
 
-        const user = { ...resp.data };
-        user.habilitado = user.habilitado == 1;
+      const user = { ...resp.data };
+      user.habilitado = user.habilitado == 1;
 
-        this.formUser.patchValue(user);
-      }
-    });
+      this.formUser.patchValue(user);
+    }
+  });
   }
 
   guardar() {
-    if (this.formUser.invalid) {
-      this.formUser.markAllAsTouched();
-      return;
-    }
-
-    const body = {
-      ...this.formUser.value,
-      habilitado: this.formUser.value.habilitado ? 1 : 0
-    };
-
-    this.userService.update(body).subscribe((resp: any) => {
-      console.log("Respuesta UPDATE:", resp);
-
-      if (resp.ok) {
-        alert('Usuario actualizado correctamente');
-        this.router.navigate(['/users/list']);
-      } else {
-        alert('Error al guardar');
-      }
-    });
+  if (this.formUser.invalid) {
+    this.formUser.markAllAsTouched();
+    return;
   }
+
+  const formValue = this.formUser.value;
+
+  const body = {
+    id_usuario: formValue.id_usuario,
+    usuario: formValue.usuario,
+    nombre_publico: formValue.nombre_publico,
+    observaciones: formValue.observaciones,
+    id_rol: Number(formValue.id_rol),
+    habilitado: formValue.habilitado ? 1 : 0,
+    password: formValue.password ?? ''
+  };
+
+  this.userService.update(body).subscribe((resp: any) => {
+    console.log("UPDATE:", resp);
+
+    alert('Usuario actualizado correctamente');
+    this.router.navigate(['/users/list']);
+  });
+}
 
   volver() {
     this.router.navigate(['/users/list']);
