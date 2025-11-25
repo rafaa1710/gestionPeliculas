@@ -51,7 +51,7 @@ export class ListPageComponent implements OnInit{
     const query = value?.trim();
 
     if (!query) {
-      this.loadPopularMovies(); // 🔁 si está vacío, vuelve a populares
+      this.loadPopularMovies(); //  si está vacío, vuelve a populares
       return;
     }
 
@@ -68,12 +68,12 @@ export class ListPageComponent implements OnInit{
     });
   }
 
-  /** 🔹 Limpia el campo de búsqueda */
+  /**  Limpia el campo de búsqueda */
   clearSearch(): void {
     this.searchInput.setValue('');
   }
 
-  /** 🔹 Devuelve la URL completa del póster */
+  /**  Devuelve la URL completa del póster */
   getImageUrl(path: string | null): string {
     return this.moviesService.getImageUrl(path);
   }

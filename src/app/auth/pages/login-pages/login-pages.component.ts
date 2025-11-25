@@ -49,7 +49,7 @@ export class LoginPagesComponent {
     this.authService.login({ username, password }).subscribe({
       next: (resp) => {
 
-        console.log('🔍 RESPUESTA DEL BACKEND COMPLETA:', resp);
+        console.log(' RESPUESTA DEL BACKEND COMPLETA:', resp);
 
         // GuardO la respuesta cruda para depurar si algo falla
         localStorage.setItem('DEBUG_RESP', JSON.stringify(resp));

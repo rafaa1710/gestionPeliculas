@@ -1,21 +1,21 @@
-/* 🟦 Tamaño fijo de la card */
+/* Tamaño fijo de la card */
 mat-card {
   width: 100%;
-  height: 420px; /* 👈 Ajusta si quieres más alto o más bajo */
+  height: 420px; /*ajusta si quieres más alto o más bajo */
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
 }
 
-/* 🟦 Imagen fija */
+/* Imagen fija */
 .poster {
   width: 100%;
-  height: 300px;      /* 👈 TODAS IGUALES */
-  object-fit: cover;  /* 👈 Recorta pero mantiene proporción */
+  height: 300px;      /*TODAS las cards iguales */
+  object-fit: cover;
 }
 
-/* 🟦 Contenedor de texto */
+/* Contenedor de texto */
 mat-card-content {
   padding: 10px;
   flex: 1;
@@ -24,7 +24,7 @@ mat-card-content {
   justify-content: space-between;
 }
 
-/* 🟦 Título */
+/*  Título */
 .movie-title {
   font-size: 16px;
   font-weight: bold;
@@ -33,13 +33,13 @@ mat-card-content {
   overflow: hidden;
 }
 
-/* 🟦 Fecha */
+/*  Fecha */
 .text-5m {
   font-size: 14px;
   color: #666;
 }
 
-/* 🟦 Botón favorito */
+/* Botón favorito */
 button[mat-icon-button] {
   position: absolute;
   top: 8px;
@@ -56,11 +56,11 @@ mat-card:hover {
 .movie-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #0a0a0a;         /* 👈 SIEMPRE BLANCO */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);  /* 👈 Efecto Netflix */
+  color: #0a0a0a;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
   margin: 8px 0 4px;
   line-height: 1.2;
-  height: 40px;           /* 👈 Para que todos ocupen igual */
+  height: 40px;
   overflow: hidden;       /* Evita romper la card */
   white-space: normal;
 }
@@ -68,12 +68,12 @@ mat-card:hover {
 .movie-release_date {
   font-size: 1rem;
   font-weight: 600;
-  color: #0a0a0a;         /* 👈 SIEMPRE BLANCO */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);  /* 👈 Efecto Netflix */
+  color: #0a0a0a;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
   margin: 8px 0 4px;
   line-height: 1.2;
-  height: 40px;           /* 👈 Para que todos ocupen igual */
-  overflow: hidden;       /* Evita romper la card */
+  height: 40px;
+  overflow: hidden;
   white-space: normal;
 }
 

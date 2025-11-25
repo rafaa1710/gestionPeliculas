@@ -1,9 +1,11 @@
+
+/*estilo para contenedor*/
 .container {
   max-width: 900px;
   margin: auto;
   padding: 20px;
 }
-
+/*estilo del header  en flexbox*/
 .header {
   display: flex;
   justify-content: space-between;
@@ -15,18 +17,19 @@
   width: 100%;
 }
 
-/* Header gris */
+/* Header color */
 .mat-mdc-header-row {
   background-color: #ebcba2d3 !important;
 }
 
-/* Filas alternas Angular Material v16+ */
+/* Filas pares  gris claro  */
 .mdc-data-table__row:nth-of-type(even),
 .mat-mdc-row:nth-of-type(even),
 .mdc-data-table__content .mdc-data-table__row:nth-child(even) {
   background-color: #f7f7f7 !important;
 }
 
+/*filas impares blancas*/
 .mdc-data-table__row:nth-of-type(odd),
 .mat-mdc-row:nth-of-type(odd),
 .mdc-data-table__content .mdc-data-table__row:nth-child(odd) {
