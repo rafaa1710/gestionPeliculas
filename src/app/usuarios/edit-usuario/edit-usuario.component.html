@@ -1,54 +1,57 @@
-<div class="container">
+<div class="split-layout">
 
-  <h2>Editar Usuario</h2>
+  <!-- IZQUIERDA -->
+  <div class="left-side"></div>
 
-  <form [formGroup]="formUser" (ngSubmit)="guardar()">
+  <!-- DERECHA -->
+  <div class="right-side">
+    <div class="form-container">
 
-    <!-- Usuario -->
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Usuario (email)</mat-label>
-      <input matInput formControlName="usuario">
-    </mat-form-field>
+      <h2 class="titulo">Editar usuario</h2>
 
-    <!-- Nombre público -->
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Nombre público</mat-label>
-      <input matInput formControlName="nombre_publico">
-    </mat-form-field>
+      <form [formGroup]="formUser" (ngSubmit)="guardar()">
 
-    <!-- Observaciones -->
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Observaciones</mat-label>
-      <textarea matInput rows="3" formControlName="observaciones"></textarea>
-    </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario (email)</mat-label>
+          <input matInput formControlName="usuario">
+        </mat-form-field>
 
-    <!-- Rol -->
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Rol</mat-label>
-      <mat-select formControlName="id_rol">
-        <mat-option *ngFor="let rol of roles" [value]="rol.id">
-          {{ rol.nombre }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre público</mat-label>
+          <input matInput formControlName="nombre_publico">
+        </mat-form-field>
 
+        <mat-form-field appearance="outline">
+          <mat-label>Rol</mat-label>
+          <mat-select formControlName="id_rol">
+            <mat-option *ngFor="let rol of roles" [value]="rol.id">
+              {{ rol.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-    <br>
-    <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Observaciones</mat-label>
+          <textarea matInput rows="3" formControlName="observaciones"></textarea>
+        </mat-form-field>
 
-    <!-- Cambiar contraseña (opcional) -->
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Nueva contraseña (opcional)</mat-label>
-      <input type="password" matInput formControlName="password">
-    </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nueva contraseña (opcional)</mat-label>
+          <input type="password" matInput formControlName="password">
+        </mat-form-field>
 
-    <div class="acciones">
-      <button mat-raised-button color="primary" type="submit">Guardar</button>
-      <button mat-button color="warn" type="button" (click)="volver()">Cancelar</button>
+        <div class="acciones">
+          <button mat-raised-button color="primary" type="submit">Guardar</button>
+          <button mat-button color="accent" (click)="volver()">Cancelar</button>
+        </div>
+
+      </form>
+
+      <button mat-raised-button color="primary" routerLink="/users">
+        ← Listado de usuarios
+      </button>
+
     </div>
-
-
-
-  </form>
+  </div>
 
 </div>
