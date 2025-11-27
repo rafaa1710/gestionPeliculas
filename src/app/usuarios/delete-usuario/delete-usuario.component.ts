@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { ListUsuariosComponent } from '../list-usuarios/list-usuarios.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-delete-usuario',
@@ -17,7 +18,8 @@ export class DeleteUsuarioComponent {
   constructor(
     private route: ActivatedRoute,
     private usersService: UsersService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -25,14 +27,23 @@ export class DeleteUsuarioComponent {
 
   }
 
+  private showMessage(message: string, success: boolean = true): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: success ? ['snackbar-success'] : ['snackbar-error']
+    });
+  }
+
   confirmDelete(): void {
     this.usersService.delete(this.id).subscribe({
       next: () => {
-        alert('Usuario eliminado correctamente');
+        this.showMessage('Usuario eliminado correctamente', true);
         this.router.navigate(['/users']);
       },
       error: () => {
-        alert('Error eliminando usuario');
+        this.showMessage('Error eliminando usuario', false);
       }
     });
   }

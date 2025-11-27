@@ -5,7 +5,7 @@
   margin: auto;
   padding: 20px;
 }
-/*estilo del header  en flexbox*/
+
 .header {
   display: flex;
   justify-content: space-between;

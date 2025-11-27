@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from '../services/users.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-usuario',
@@ -33,7 +34,8 @@ export class EditUsuarioComponent {
     private fb: FormBuilder,
     private userService: UsersService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -53,11 +55,23 @@ export class EditUsuarioComponent {
   });
   }
 
+
+  private showMessage(message: string, success: boolean = true): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: success ? ['snackbar-success'] : ['snackbar-error']
+    });
+  }
+
   guardar() {
   if (this.formUser.invalid) {
     this.formUser.markAllAsTouched();
     return;
   }
+
+
 
   const formValue = this.formUser.value;
 
@@ -73,8 +87,7 @@ export class EditUsuarioComponent {
 
   this.userService.update(body).subscribe((resp: any) => {
     console.log("UPDATE:", resp);
-
-    alert('Usuario actualizado correctamente');
+    this.showMessage('Usuario actualizado correctamente', true);
     this.router.navigate(['/users/list']);
   });
 }

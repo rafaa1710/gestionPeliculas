@@ -24,6 +24,10 @@ export class AuthGuard implements CanActivate{
       return false;
     }
 
+
+
+
+
     //si hay token te deja acceder
      return true;
 

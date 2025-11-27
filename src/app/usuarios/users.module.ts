@@ -16,6 +16,8 @@ import { DeleteUsuarioComponent } from './delete-usuario/delete-usuario.componen
 import { ListUsuariosComponent } from './list-usuarios/list-usuarios.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 
@@ -37,7 +39,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ReactiveFormsModule,
     MatIconModule,
      MatTableModule,
-     MatSlideToggleModule
+     MatSlideToggleModule,
+     MatSnackBarModule
   ]
 })
 export class UsersModule { }

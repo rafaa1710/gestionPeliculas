@@ -1,20 +1,24 @@
 :host {
   display: block;
-  background-color: #ababab;
+
+
   min-height: 100vh;
-  margin: 0 !important;
-  padding: 0 !important;
+  padding: 20px;
+   text-align: center;
 }
 
 
-h1 {
-  text-align: center;
-
-
+.titulo-favoritos {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 12px;
   font-size: 2rem;
   font-weight: 700;
-  color: #2a2a2a;
-  position: relative;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 
