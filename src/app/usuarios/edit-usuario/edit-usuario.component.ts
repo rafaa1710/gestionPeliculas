@@ -42,17 +42,24 @@ export class EditUsuarioComponent {
 
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
 
-  this.userService.getById(this.userId).subscribe((resp: any) => {
-    console.log("Respuesta GET:", resp);
+    this.userService.getById(this.userId).subscribe((resp: any) => {
+      console.log("Respuesta GET:", resp);
 
-    if (resp.status && resp.data) {
+      if (resp.status && resp.data) {
 
-      const user = { ...resp.data };
-      user.habilitado = user.habilitado == 1;
+        const user = { ...resp.data };
 
-      this.formUser.patchValue(user);
-    }
-  });
+        this.formUser.patchValue({
+          id_usuario: this.userId,
+          usuario: user.usuario,
+          nombre_publico: user.nombre_publico,
+          observaciones: user.observaciones,
+          id_rol: user.id_rol,
+          habilitado: user.habilitado == 1
+        });
+
+      }
+    });
   }
 
 
