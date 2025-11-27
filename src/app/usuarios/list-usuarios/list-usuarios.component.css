@@ -1,11 +1,35 @@
+/* Fondo profesional */
+:host {
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  display: block;
+  padding: 20px;
+  text-align: center; /* centra título */
+}
 
-/*estilo para contenedor*/
+/* Título centrado */
+.titulo-usuarios {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 12px 25px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  width: fit-content;
+}
+
+/* Contenedor interior */
 .container {
   max-width: 900px;
   margin: auto;
   padding: 20px;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -13,23 +37,45 @@
   margin-bottom: 20px;
 }
 
-.tabla {
-  width: 100%;
+/* TABLA REDONDEADA */
+.tabla-wrapper {
+  border-radius: 12px;
+  overflow: hidden; /* necesario para redondear filas internas */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: white;
+  margin-top: 20px;
 }
 
-/* Header color */
+/* tabla interna */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Botón verde crear usuario */
+.btn-crear {
+  background-color: #2ecc71 !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.btn-crear:hover {
+  background-color: #27ae60 !important;
+}
+
+/* Header color de tabla */
 .mat-mdc-header-row {
   background-color: #ebcba2d3 !important;
 }
 
-/* Filas pares  gris claro  */
+/* Filas pares gris claro */
 .mdc-data-table__row:nth-of-type(even),
 .mat-mdc-row:nth-of-type(even),
 .mdc-data-table__content .mdc-data-table__row:nth-child(even) {
   background-color: #f7f7f7 !important;
 }
 
-/*filas impares blancas*/
+/* Filas impares blancas */
 .mdc-data-table__row:nth-of-type(odd),
 .mat-mdc-row:nth-of-type(odd),
 .mdc-data-table__content .mdc-data-table__row:nth-child(odd) {

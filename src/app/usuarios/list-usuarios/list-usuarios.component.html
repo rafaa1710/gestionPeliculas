@@ -1,13 +1,11 @@
 <div class="container">
 
   <div class="header">
-    <h2>Gestión de Usuarios</h2>
-    <button mat-raised-button color="primary" (click)="crear()">
-      <mat-icon>add</mat-icon>
-      Crear Usuario
-    </button>
+    <h2 class="titulo-usuarios">Gestión de Usuarios</h2>
+
   </div>
 
+  <div class="tabla-wrapper">
   <table mat-table [dataSource]="usuarios" class="mat-elevation-z2 zebra">
 
     <!-- ID -->
@@ -62,10 +60,16 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   </table>
+  </div>
 
-  <button mat-raised-button color="primary" [routerLink]="['/movies/list']">
+  <button mat-raised-button style="margin-right: 100px;" color="primary" [routerLink]="['/movies/list']">
       <mat-icon>arrow_back</mat-icon>
        Volver a Películas
   </button>
+
+  <button mat-raised-button color="primary" class="btn-crear" (click)="crear()">
+      <mat-icon>add</mat-icon>
+      Crear Usuario
+    </button>
 
 </div>

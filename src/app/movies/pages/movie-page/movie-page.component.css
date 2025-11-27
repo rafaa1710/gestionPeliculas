@@ -4,6 +4,19 @@
   padding: 30px;
   align-items: flex-start;
 }
+.titulo-detalles {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 20px auto 10px auto;
+  margin: 20px auto 10px auto;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 12px 25px;
+  display: inline-block;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
 
 .poster-container {
   flex: 1;
