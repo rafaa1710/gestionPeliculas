@@ -71,8 +71,6 @@ export class EditUsuarioComponent {
     return;
   }
 
-
-
   const formValue = this.formUser.value;
 
   const body = {

@@ -15,14 +15,14 @@
   align-items: center;
   text-align: center;
 
-  border-top: 8px solid #ff4d4d; /* detalle rojo profesional */
+  border-top: 8px solid #ff4d4d;
 }
 
 /* Título */
 .titulo {
   font-size: 2rem;
   margin-bottom: 15px;
-  color: #d90429;  /* rojo elegante */
+  color: #d90429;
   font-weight: 800;
   letter-spacing: 1px;
 }

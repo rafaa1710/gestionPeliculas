@@ -2,6 +2,7 @@ import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-pages',
@@ -26,8 +27,18 @@ export class LoginPagesComponent {
   constructor(
     private fb: FormBuilder,
     private authService:  AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ){ }
+
+  private showMessage(message: string, success: boolean = true): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: success ? ['snackbar-success'] : ['snackbar-error']
+    });
+  }
 
     siguientePaso(){
       if(this.formEmail.valid){
@@ -73,13 +84,13 @@ export class LoginPagesComponent {
 
         } else {
           console.warn(' Backend respondió pero sin status válido:', resp);
-          alert('Credenciales incorrectas');
+          this.showMessage('Credenciales incorrectas', false);
         }
 
       },
       error: (err) => {
         console.error(' Error de login:', err);
-        alert('Error de conexión con el servidor');
+        this.showMessage('Error de conexión con el servidor', false);
       }
     });
   }

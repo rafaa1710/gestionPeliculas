@@ -4,7 +4,7 @@
   background: #ffffff;
 }
 
-/* === CONTENEDOR 50/50 === */
+/* === CONTENEDOR */
 .split-layout {
   display: flex;
   width: 100%;
@@ -23,7 +23,7 @@
 
 /* === FORMULARIO DERECHA === */
 .right-side {
-  flex: 1.3; /* ligeramente más ancho para igualarlo a tu imagen */
+  flex: 1.3;
   display: flex;
   justify-content: center;
   align-items: center;
