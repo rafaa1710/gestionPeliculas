@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-list-usuarios',
@@ -23,11 +24,21 @@ export class ListUsuariosComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.cargarUsuarios();
+  }
+
+  private showMessage(message: string, success: boolean = true): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: success ? ['snackbar-success'] : ['snackbar-error']
+    });
   }
 
   cargarUsuarios() {
@@ -61,10 +72,10 @@ export class ListUsuariosComponent implements OnInit {
 
     this.usersService.delete(id).subscribe((resp: any) => {
       if (resp.status) {
-        alert('Usuario eliminado');
+        this.showMessage('Usuario eliminado correctamente', true);
         this.cargarUsuarios();
       } else {
-        alert('Error al eliminar');
+        this.showMessage('Error al eliminar usuario', false);
       }
     });
   }
