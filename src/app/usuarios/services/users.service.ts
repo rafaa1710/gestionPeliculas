@@ -12,10 +12,11 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   private getHeaders() {
-    return new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-  }
+  return new HttpHeaders({
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    'Content-Type': 'application/json'
+  });
+}
 
   getAll() {
     return this.http.get(this.base, { headers: this.getHeaders() });
@@ -30,8 +31,7 @@ export class UsersService {
   }
 
   update(body: any) {
-    return this.http.put(this.base, body, { headers: this.getHeaders(),
-    responseType: 'text' });
+    return this.http.put(this.base, body, { headers: this.getHeaders()});
   }
 
   delete(id: number) {

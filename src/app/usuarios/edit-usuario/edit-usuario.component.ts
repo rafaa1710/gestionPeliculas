@@ -14,7 +14,7 @@ export class EditUsuarioComponent {
   userId!: number;
 
   formUser = this.fb.group({
-    id_usuario: [0],
+    id_usuario: [this.userId],
     usuario: ['', Validators.required],
     nombre_publico: ['', Validators.required],
     observaciones: [''],

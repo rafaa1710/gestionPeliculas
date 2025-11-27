@@ -74,7 +74,7 @@ export class LoginPagesComponent {
           //  Guarda usuario si existe
           localStorage.setItem('usuario', resp.data.usuario ?? resp.usuario ?? '');
 
-          //  Guarda nombre público, en snake_case o camelCase
+          //  Guarda nombre público
           localStorage.setItem('nombre_publico',
             resp.data.nombre_publico ?? resp.data.nombrePublico ?? '');
 
