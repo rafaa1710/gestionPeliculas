@@ -1,5 +1,9 @@
 :host {
   display: block;
+  background-image: url('https://img.freepik.com/foto-gratis/collaje-fondo-pelicula_23-2149876003.jpg?semt=ais_hybrid&w=740&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   min-height: 100vh;
   padding: 20px;

@@ -1,6 +1,9 @@
 :host {
   display: block;
-
+background-image: url('https://media.istockphoto.com/id/1303181774/es/foto/fondo-conceptual-de-cine-asientos-de-cine-rojo-y-taza-de-papel-de-caf%C3%A9-o-cola-en-teatro-vac%C3%ADo.jpg?s=612x612&w=0&k=20&c=8-dORvEwuJCmCsBCITdy6clfkixa8weu9QRJ75_pyj0=');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   min-height: 100vh;
   padding: 20px;
