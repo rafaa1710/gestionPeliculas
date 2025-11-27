@@ -17,9 +17,9 @@
 .left-side {
   flex: 1;
   background-image: url('https://static.vecteezy.com/system/resources/previews/000/380/080/non_2x/add-user-vector-icon.jpg');
-  background-size: auto;     /* ← tamaño real */
+  background-size: auto;
   background-repeat: no-repeat;
-  background-position: center center; /* ← centrada */
+  background-position: center center;
 }
 
 
@@ -29,24 +29,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffffee; /* blanco suave */
+  background: #ffffffee;
 }
 
-/* TU FORMULARIO */
+/* FORMULARIO */
 .form-container {
   width: 100%;
-  max-width: 650px;   /* ⬅️ ANTES era 420px */
-  background: rgb(253, 253, 253);
-  padding: 40px;      /* ⬅️ Más espacio interno */
-  border-radius: 20px; /* ⬅️ Bordes más grandes */
+  max-width: 650px;
+  background: rgb(239, 240, 216);
+  padding: 40px;
+  border-radius: 20px;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
-  gap: 25px;          /* ⬅️ Más separación entre campos */
+  gap: 25px;
 }
 
 .titulo {
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 20px;
+  color: green;
+  font-weight: 700;
 }

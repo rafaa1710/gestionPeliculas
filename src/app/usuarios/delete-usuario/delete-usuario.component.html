@@ -1,17 +1,17 @@
-<h2>Eliminar Usuario</h2>
+<form class="form-container">
+  <h2 class="titulo">Eliminar Usuario</h2>
 
-<p >
-  ¿Seguro que deseas eliminar al usuario?
-</p>
+  <p class="mensaje">
+    ¿Seguro que deseas eliminar el usuario seleccionado?
+  </p>
 
+  <div class="acciones">
+    <button mat-raised-button color="warn" (click)="confirmDelete()">
+      Eliminar
+    </button>
 
-
-<div class="acciones">
-  <button mat-raised-button color="warn" (click)="confirmDelete()">
-    Eliminar
-  </button>
-
-  <button mat-button routerLink="/users">
-    Cancelar
-  </button>
-</div>
+    <button mat-button routerLink="/users">
+      Cancelar
+    </button>
+  </div>
+</form>
