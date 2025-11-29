@@ -45,10 +45,10 @@ export class EditUsuarioComponent {
     this.userService.getById(this.userId).subscribe((resp: any) => {
       console.log("Respuesta GET:", resp);
 
-      if (resp.status && resp.data) {
+      if ( resp.data.length > 0) {
 
-        const user = { ...resp.data };
-
+        const user = { ...resp.data[0] };
+        console.log("Usuario obtenido:", user);
         this.formUser.patchValue({
           id_usuario: this.userId,
           usuario: user.usuario,
@@ -81,7 +81,7 @@ export class EditUsuarioComponent {
   const formValue = this.formUser.value;
 
   const body = {
-    id_usuario: formValue.id_usuario,
+    id_usuario: this.userId,
     usuario: formValue.usuario,
     nombre_publico: formValue.nombre_publico,
     observaciones: formValue.observaciones,
