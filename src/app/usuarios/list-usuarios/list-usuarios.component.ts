@@ -61,6 +61,7 @@ export class ListUsuariosComponent implements OnInit {
 
   editar(id: number) {
     this.router.navigate(['/users/edit', id]);
+
   }
 
   crear() {

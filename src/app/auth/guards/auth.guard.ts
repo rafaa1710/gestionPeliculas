@@ -1,6 +1,8 @@
+import { PermissionService } from './../services/permission.service';
 import { Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router'
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,8 @@ export class AuthGuard implements CanActivate{
 
   constructor(
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private permissionService: PermissionService
   ) {}
 
   private showMessage(message: string, success: boolean = true): void {
@@ -38,13 +41,12 @@ export class AuthGuard implements CanActivate{
     }
 
     //  Comprobar si tiene el rol necesario si el rol no es 1 (administrador) te redirige al list aqui salta el snackbar
-    const userRol = Number(localStorage.getItem('id_rol'));
 
-    // creo constante para guardar rol
-    const requiredRol = route.data['rol'];
-
+    console.log('Comprobando permisos de administrador...');
+    const response=!this.permissionService.isAdmin()
     // se va al users-routing con el rol y alli si es 1 te deja y si no vuelve aqui y te pone el snackbar
-    if (requiredRol && userRol !== requiredRol) {
+    console.log(response)
+    if (response ) {
       this.showMessage('Acceso denegado, debes de ser administrador', false);
       this.router.navigate(['/movies']);
       return false;

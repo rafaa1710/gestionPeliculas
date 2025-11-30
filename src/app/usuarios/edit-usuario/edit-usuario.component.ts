@@ -93,8 +93,13 @@ export class EditUsuarioComponent {
   this.userService.update(body).subscribe((resp: any) => {
     console.log("UPDATE:", resp);
     this.showMessage('Usuario actualizado correctamente', true);
-    this.router.navigate(['/users/list']);
+
+    this.router.navigate(['/users/list'])
   });
+
+    //this.router.navigateByUrl('/login');
+
+
 }
 
   volver() {

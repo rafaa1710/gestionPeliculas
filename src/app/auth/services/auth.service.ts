@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable}  from 'rxjs';
 import {URL_API} from 'src/environtments/environment'
 
@@ -12,6 +12,13 @@ export class AuthService{
 
   constructor(private http: HttpClient){ }
 
+
+  private getHeaders(): HttpHeaders {
+      return new HttpHeaders({
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      });
+    }
 
   // envio las credenciales y me responde si son correctas o no
   login(data: {username: string; password: string}): Observable<any>{
@@ -28,6 +35,9 @@ export class AuthService{
     return localStorage.getItem('nombre_publico') || '';
   }
 
+  isAdmin() {
+    return this.http.get(`${URL_API}/permission.php`, { headers: this.getHeaders() });
+  }
 
   //Metodo para cerrar sesion
   logOut(): Observable<any>{
