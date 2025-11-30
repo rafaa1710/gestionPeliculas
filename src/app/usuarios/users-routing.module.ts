@@ -10,13 +10,13 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 // aqui en las rutas viene del authGuards con el rol y este te deja si es 1 (administrador)
 const routes: Routes = [
   { path: 'list', component: ListUsuariosComponent ,canActivate: [AuthGuard],
-  data: { rol: 1 }},
+  data: { requireAdmin: true }},
   { path: 'add', component: AddUsuarioComponent ,canActivate: [AuthGuard],
-  data: { rol: 1 }},
+  data: { requireAdmin: true }},
   { path: 'edit/:id', component: EditUsuarioComponent,canActivate: [AuthGuard],
-  data: { rol: 1 } },
+  data: { requireAdmin: true } },
   { path: 'delete/:id', component: DeleteUsuarioComponent,canActivate: [AuthGuard],
-  data: { rol: 1 } },
+  data: { requireAdmin: true } },
   { path: '', redirectTo: 'list', pathMatch: 'full' }
 
 ];

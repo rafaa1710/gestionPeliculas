@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {URL_API} from 'src/environtments/environment'
+import { firstValueFrom } from 'rxjs';
 
 
 @Injectable({
@@ -17,8 +18,8 @@ export class PermissionService {
     });
   }
 
-  isAdmin() {
-    return this.http.get(`${URL_API}/permission.php`, { headers: this.getHeaders() });
+  async isAdmin(): Promise<any> {
+    return await firstValueFrom(this.http.get(`${URL_API}/permission.php`, { headers: this.getHeaders() }));
   }
 
 }

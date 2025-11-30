@@ -1,14 +1,12 @@
-import { PermissionService } from './../services/permission.service';
-import { Injectable} from '@angular/core';
-import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router'
+import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { PermissionService } from './../services/permission.service';
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class AuthGuard implements CanActivate{
+export class AuthGuard implements CanActivate {
 
   constructor(
     private router: Router,
@@ -25,40 +23,36 @@ export class AuthGuard implements CanActivate{
     });
   }
 
-  //El guard comprueba si existe un token en el localStorage (es decir, si el usuario está logueado).
-  // Si no hay token, lo redirige automáticamente al login.
-  // Si sí hay token, le permite pasar. Esto añade seguridad a la navegación de la app.
-  // si no hay token pero esta registrado en la bd lo deja entrar y se genera si no esta registrado no hay token no lo deja
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     const token = localStorage.getItem('token');
 
-    if (!token){
-      //sin token redirige al login
+    if (!token) {
       this.router.navigate(['/login']);
-      this.showMessage('Usuario sin acceso, debe iniciar sesion', false);
-      //console.log('Usuario sin acceso');
+      this.showMessage('Usuario sin acceso, debe iniciar sesión', false);
       return false;
     }
 
-    //  Comprobar si tiene el rol necesario si el rol no es 1 (administrador) te redirige al list aqui salta el snackbar
+    // Solo verifica si es admin si la ruta lo requiere
+    const requireAdmin = route.data?.['requireAdmin'] ?? false;
 
-    console.log('Comprobando permisos de administrador...');
-    const response=!this.permissionService.isAdmin()
-    // se va al users-routing con el rol y alli si es 1 te deja y si no vuelve aqui y te pone el snackbar
-    console.log(response)
-    if (response ) {
-      this.showMessage('Acceso denegado, debes de ser administrador', false);
-      this.router.navigate(['/movies']);
-      return false;
+    if (requireAdmin) {
+      try {
+        const resp: any = await this.permissionService.isAdmin();
+        const isAdmin = !!resp?.data?.is_admin;
+
+        if (!isAdmin) {
+          this.showMessage('Acceso denegado, debes ser administrador', false);
+          this.router.navigate(['/movies']);
+          return false;
+        }
+      } catch (err) {
+        console.error('Error comprobando permisos', err);
+        this.showMessage('Error comprobando permisos', false);
+        this.router.navigate(['/login']);
+        return false;
+      }
     }
 
-    //si hay token te deja acceder
-     return true;
-
+    return true;
   }
-
 }
-
-
-
-
