@@ -29,7 +29,6 @@ export class AuthService{
     })
   }
 
-
   //metodo para captar el nombre publico y que se indique al iniciar sesion
   getNombrePublico(): string{
     return localStorage.getItem('nombre_publico') || '';

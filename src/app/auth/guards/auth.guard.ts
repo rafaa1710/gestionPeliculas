@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
       return false;
     }
 
-    // Solo verifica si es admin si la ruta lo requiere
+    // Solo verifica si es admin
     const requireAdmin = route.data?.['requireAdmin'] ?? false;
 
     if (requireAdmin) {
