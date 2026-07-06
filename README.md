@@ -56,6 +56,8 @@ npm install
 
 ## Configuracion
 
+El backend de este proyecto es `app.radfpd.es` y tambien esta disponible en GitHub: [rafaa1710/app.radfpd.es](https://github.com/rafaa1710/app.radfpd.es).
+
 La configuracion principal del backend se encuentra en:
 
 ```text
@@ -185,3 +187,5 @@ Angular abrira el entorno de Karma para ejecutar las pruebas configuradas.
 ## Autor
 
 Proyecto desarrollado por Rafael Garcia.
+
+
