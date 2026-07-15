@@ -15,9 +15,8 @@
 
   <div class="col-span-2 space-y-4">
     <h1 class="text-3xl font-bold">{{movie.title}}</h1>
-    <p class="text-gray-600 italic">Titulo original: {{movie.original_title}}</p>
-    <p><strong>Fecha de estreno: </strong>{{movie.release_date}}</p>
-    <p><strong>Popularidad: </strong>{{movie.popularity}}</p>
+    <p class="text-gray-600 italic"><strong>Titulo original: </strong>{{movie.original_title}}</p>
+    <p><strong>Fecha de estreno: </strong>{{movie.release_date | date:'dd-MM-yyyy' }}</p>
     <p><strong>Valoracion media: </strong>{{movie.vote_average | number:'1.1-1'}}⭐</p>
     <p><strong>Duración: </strong>{{movie.runtime}} minutos</p>
     <p>

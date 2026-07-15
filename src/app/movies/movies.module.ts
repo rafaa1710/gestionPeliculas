@@ -21,6 +21,7 @@ import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.co
     SearchPageComponent,
     FavoritesPageComponent,
 
+
   ],
   imports: [
     CommonModule,
@@ -28,6 +29,9 @@ import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.co
     MoviesRoutingModule,
     MaterialModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    MatTooltipModule,
   ]
 })
 export class MoviesModule { }

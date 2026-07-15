@@ -17,18 +17,29 @@
 
 .titulo-populares {
   display: inline-block;
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 12px 25px;
+
+  margin: 20px auto 32px;
+  padding: 12px 28px;
+
+  background: rgba(15, 23, 42, 0.82);
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 20px auto;
-  text-align: left;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
 }
 
-
+.titulo-populares {
+  display: table;
+  margin: 20px auto 32px;
+  padding: 22px 40px;
+}
 
 h1::after {
   content: "";
