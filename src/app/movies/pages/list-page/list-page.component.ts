@@ -14,6 +14,8 @@ export class ListPageComponent implements OnInit{
   // Lista de películas
   public movies: Movie[] = [];
 
+  public currentPage: number = 1;
+
   // Campo de búsqueda
   public searchInput = new FormControl('');
 
@@ -32,12 +34,18 @@ export class ListPageComponent implements OnInit{
   }
 
   /** Carga las películas populares al inicio */
-  private loadPopularMovies(): void {
+  private loadPopularMovies(reset: boolean = false): void {
+
+    if(reset){
+      this.currentPage = 1;
+      this.movies = [];
+    }
+
     this.loading = true;
-    this.moviesService.getPopularMovie().subscribe({
+    this.moviesService.getPopularMovie(this.currentPage).subscribe({
       next: (movies) => {
-        this.movies = movies;
-        this.loading = false;
+        this.movies = [...this.movies, ...movies];
+      this.loading = false;
       },
       error: (err) => {
         console.error('Error al cargar peliculas populares:', err);
@@ -77,6 +85,11 @@ export class ListPageComponent implements OnInit{
   getImageUrl(path: string | null): string {
     return this.moviesService.getImageUrl(path);
   }
+
+  loadMore(): void {
+  this.currentPage++;
+  this.loadPopularMovies();
+}
 
 
 

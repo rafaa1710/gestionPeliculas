@@ -16,11 +16,11 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
 
-  getPopularMovie(): Observable <Movie[]>{
+  getPopularMovie(page: number = 1): Observable <Movie[]>{
     const params = new HttpParams()
       .set('api_key', this.apiKey)
       .set('language', 'es-ES')
-      .set('page',1);
+      .set('page', page);
 
       return this.http.get<{ results: Movie[]}>(`${this.apiUrl}/movie/popular`, {params})
       .pipe(map(resp => resp.results));
