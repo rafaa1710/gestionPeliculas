@@ -2,7 +2,7 @@
 
   <!-- Sidebar -->
   <mat-sidenav #sidenav mode="side" class="w-16rem" [opened]="false">
-    <mat-toolbar color="primary">Menú</mat-toolbar>
+    <mat-toolbar class="menu-toolbar">Menú</mat-toolbar>
 
     <mat-nav-list>
       <mat-list-item *ngFor="let opcion of sidebarItems" [routerLink]="opcion.url" (click)="sidenav.close()">

@@ -2,8 +2,16 @@
   display: block;
   background-color: #ababab;
   min-height: 100vh;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: calc(-1 * clamp(1rem, 2.5vw, 2.25rem)) !important;
+  padding: clamp(1rem, 2.5vw, 2.25rem) !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  :host {
+    margin: -1rem -0.75rem !important;
+    padding: 1rem 0.75rem !important;
+  }
 }
 
 
