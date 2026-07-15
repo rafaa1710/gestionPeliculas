@@ -1,84 +1,253 @@
-/* Fondo profesional */
 :host {
-  background-color: #f3f4f6;
-  min-height: 100vh;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --border: #e2e8f0;
+  --text-primary: #172033;
+  --text-secondary: #64748b;
+  --brand: #26354d;
+  --brand-hover: #1b273a;
+  --accent: #2f9e68;
+  --accent-hover: #248255;
+
   display: block;
-  padding: 20px;
-  text-align: center; /* centra título */
+  min-height: 100vh;
+  padding: clamp(24px, 4vw, 56px) 20px;
+  background:
+    radial-gradient(circle at top left, rgba(232, 204, 165, 0.28), transparent 32rem),
+    #f4f6f9;
+  color: var(--text-primary);
+  box-sizing: border-box;
 }
 
-/* Título centrado */
-.titulo-usuarios {
-  display: inline-block;
-  margin: 20px auto;
-  padding: 12px 25px;
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  font-size: 2rem;
-  text-align: center;
-  border-radius: 12px;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  width: fit-content;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Contenedor interior */
 .container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 0;
 }
 
-/* Header */
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: flex-start;
+  margin-bottom: 24px;
 }
 
-/* TABLA REDONDEADA */
+.titulo-usuarios {
+  position: relative;
+  margin: 0;
+  padding-bottom: 12px;
+  color: var(--text-primary);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.titulo-usuarios::after {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 52px;
+  height: 4px;
+  border-radius: 999px;
+
+  content: '';
+}
+
+.titulo-usuarios {
+  position: relative;
+  display: table;
+  margin: 20px auto 32px;
+  text-align: center;
+}
+
 .tabla-wrapper {
-  border-radius: 12px;
-  overflow: hidden; /* necesario para redondear filas internas */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  background: white;
-  margin-top: 20px;
-}
-
-/* tabla interna */
-.tabla {
   width: 100%;
-  border-collapse: collapse;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-width: thin;
 }
 
-/* Botón verde crear usuario */
-.btn-crear {
-  background-color: #2ecc71 !important;
-  color: white !important;
+.tabla-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tabla-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #cbd5e1;
+}
+
+table.mat-mdc-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: separate;
+  background: transparent;
+}
+
+.mat-mdc-header-row {
+  height: 58px;
+  background: var(--brand);
+}
+
+.mat-mdc-header-cell {
+  border-bottom: 0;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.mat-mdc-row {
+  height: 62px;
+  background: var(--surface);
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background: var(--surface-muted);
+}
+
+.mat-mdc-row:hover {
+  position: relative;
+  z-index: 1;
+  background: #eef3f8;
+  box-shadow: inset 3px 0 0 #d4a96f;
+}
+
+.mat-mdc-cell {
+  border-bottom-color: var(--border);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.mat-mdc-row:last-child .mat-mdc-cell {
+  border-bottom: 0;
+}
+
+/* Estado habilitado: los iconos siguen siendo comprensibles sin depender solo del color. */
+.mat-mdc-cell mat-icon[color='primary'] {
+  color: #198754;
+}
+
+.mat-mdc-cell mat-icon[color='warn'] {
+  color: #d64545;
+}
+
+.mat-mdc-cell:last-child,
+.mat-mdc-header-cell:last-child {
+  min-width: 122px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mat-mdc-cell .mat-mdc-icon-button {
+  width: 40px;
+  height: 40px;
+  margin: 0 2px;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.mat-mdc-cell .mat-mdc-icon-button:hover {
+  background: rgba(38, 53, 77, 0.08);
+  transform: translateY(-1px);
+}
+
+.mat-mdc-cell .mat-mdc-icon-button:focus-visible,
+.container > button:focus-visible {
+  outline: 3px solid rgba(47, 158, 104, 0.3);
+  outline-offset: 2px;
+}
+
+/* Acciones inferiores */
+.container > button {
+  min-height: 44px;
+  margin-top: 24px !important;
+  border-radius: 10px;
   font-weight: 600;
-  margin-top: 5vh;
+  letter-spacing: 0.01em;
+  box-shadow: none;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.container > button:first-of-type {
+  margin-right: 12px !important;
+  background: var(--brand);
+  color: #ffffff;
+}
+
+.container > button:first-of-type:hover {
+  background: var(--brand-hover);
+}
+
+.btn-crear {
+  background: var(--accent) !important;
+  color: #ffffff !important;
 }
 
 .btn-crear:hover {
-  background-color: #27ae60 !important;
+  background: var(--accent-hover) !important;
 }
 
-/* Header color de tabla */
-.mat-mdc-header-row {
-  background-color: #ebcba2d3 !important;
+.container > button:hover {
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.14);
+  transform: translateY(-1px);
 }
 
-/* Filas pares gris claro */
-.mdc-data-table__row:nth-of-type(even),
-.mat-mdc-row:nth-of-type(even),
-.mdc-data-table__content .mdc-data-table__row:nth-child(even) {
-  background-color: #f7f7f7 !important;
+.container > button mat-icon {
+  margin-right: 6px;
 }
 
-/* Filas impares blancas */
-.mdc-data-table__row:nth-of-type(odd),
-.mat-mdc-row:nth-of-type(odd),
-.mdc-data-table__content .mdc-data-table__row:nth-child(odd) {
-  background-color: #ffffff !important;
+@media (max-width: 640px) {
+  :host {
+    padding: 24px 14px 32px;
+  }
+
+  .header {
+    margin-bottom: 18px;
+  }
+
+  .tabla-wrapper {
+    border-radius: 12px;
+  }
+
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .container > button {
+    width: 100%;
+    margin-top: 12px !important;
+    margin-right: 0 !important;
+  }
+
+  .container > button:first-of-type {
+    margin-top: 20px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mat-mdc-row,
+  .mat-mdc-cell .mat-mdc-icon-button,
+  .container > button {
+    transition: none;
+  }
 }
