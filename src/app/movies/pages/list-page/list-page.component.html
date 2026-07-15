@@ -22,14 +22,18 @@
 
 <!-- Botón cargar más -->
 <div
-  class="text-center mt-5"
+  class="load-more-container"
   *ngIf="!loading && !searchInput.value && movies.length > 0">
 
   <button
-    mat-raised-button
-    color="primary"
-    (click)="loadMore()">
-    Cargar más películas
+    class="load-more-btn"
+    (click)="loadMore()"
+    [disabled]="loading">
+
+    <mat-icon>expand_more</mat-icon>
+
+    {{ loading ? 'Cargando...' : 'Cargar más películas' }}
+
   </button>
 
 </div>

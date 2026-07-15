@@ -30,9 +30,10 @@
         <span class="text-base font-medium p-3">{{ nombrePublico }}</span>
         <mat-icon style="font-size: 25px; padding: 10px;">account_circle</mat-icon>
 
-        <button mat-icon-button color="accent" (click)="logout()" aria-label="Cerrar sesión">
+        <button mat-icon-button color="accent" (click)="logout()" matTooltip="Cerrar sesión" matTooltipPosition="below" [matTooltipShowDelay]="300" aria-label="Cerrar sesión">
           <mat-icon style="font-size: 28px;">logout</mat-icon>
         </button>
+
       </div>
 
     </mat-toolbar>
