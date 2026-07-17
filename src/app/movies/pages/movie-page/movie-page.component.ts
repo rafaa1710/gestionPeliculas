@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../interfaces/movie.interface';
+import { WatchedService } from '../../services/watched.service';
 
 @Component({
   selector: 'app-movie-page',
@@ -13,10 +14,16 @@ export class MoviePageComponent implements OnInit{
   //almacena pelicula obtenida por id
   movie!: Movie;
 
+
+  //estado d ela pelicula para el usuario
+  isWatched = false;
+  updatingWatched = false;
+
+
   constructor(
     private route: ActivatedRoute,
-    private moviesService: MoviesService
-
+    private moviesService: MoviesService,
+    private watchedService: WatchedService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +43,45 @@ export class MoviePageComponent implements OnInit{
       }
     });
   }
+
+  private checkWatchedStatus(): void {
+    this.watchedService.getWatchedMovies(this.movie.id).subscribe({
+      next: (response) => {
+        if (response.status && response.data) {
+          this.isWatched = response.data.includes(this.movie.id);
+        } else {
+          console.error('Error al obtener el estado de la película vista:', response.message);
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener el estado de la película vista:', err);
+      }
+    });
+  }
+
+
+  toggleWatched(): void {
+    if (this.updatingWatched) return; // Evita múltiples solicitudes simultáneas
+    this.updatingWatched = true;
+
+    const request$ = this.isWatched
+      ? this.watchedService.removeWatched(this.movie.id)
+      : this.watchedService.addWatched(this.movie.id);
+
+    request$.subscribe({
+      next: (response) => {
+        if (response.status) {
+          this.isWatched = !this.isWatched;
+        }
+        this.updatingWatched = false;
+      },
+      error: (err) => {
+        console.error('Error al actualizar el estado de la película vista:', err);
+        this.updatingWatched = false;
+      }
+    });
+  }
+
 
   //funcion para captar la imagen d ela pelicula
   get MovieImage(): string {

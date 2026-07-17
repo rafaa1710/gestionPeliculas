@@ -163,4 +163,39 @@ mat-spinner {
   .col-span-2 p {
     font-size: 0.96rem;
   }
+
+
+  .watched-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+
+  padding: 10px 18px;
+  border-radius: 10px;
+
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.watched-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.14);
+}
+
+.watched-button.watched {
+  background: #15803d !important;
+  color: #ffffff !important;
+}
+
+.watched-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
 }
