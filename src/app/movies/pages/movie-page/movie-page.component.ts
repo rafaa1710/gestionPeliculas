@@ -44,20 +44,20 @@ export class MoviePageComponent implements OnInit{
     });
   }
 
-  private checkWatchedStatus(): void {
-    this.watchedService.getWatchedMovies(this.movie.id).subscribe({
-      next: (response) => {
-        if (response.status && response.data) {
-          this.isWatched = response.data.includes(this.movie.id);
-        } else {
-          console.error('Error al obtener el estado de la película vista:', response.message);
-        }
-      },
-      error: (err) => {
-        console.error('Error al obtener el estado de la película vista:', err);
+ private checkWatchedStatus(): void {
+  this.watchedService.getWatchedMovies().subscribe({
+    next: (response) => {
+      if (response.status && response.data) {
+        this.isWatched = response.data.includes(this.movie.id);
+      } else {
+        console.error('Error al obtener el estado de la película vista:', response.message);
       }
-    });
-  }
+    },
+    error: (err) => {
+      console.error('Error al obtener el estado de la película vista:', err);
+    }
+  });
+}
 
 
   toggleWatched(): void {

@@ -10,7 +10,8 @@ import { MoviePageComponent } from './pages/movie-page/movie-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
-
+import { MatExpansionModule } from '@angular/material/expansion';
+import { WatchedPageComponent } from './pages/watched-page/watched-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.co
     MoviePageComponent,
     SearchPageComponent,
     FavoritesPageComponent,
+    WatchedPageComponent,
 
 
   ],
@@ -28,10 +30,12 @@ import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.co
     MatTooltipModule,
     MoviesRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   exports: [
     MatTooltipModule,
+    MatExpansionModule
   ]
 })
 export class MoviesModule { }

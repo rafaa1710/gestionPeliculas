@@ -9,15 +9,99 @@
       </mat-toolbar>
 
       <mat-nav-list>
-        <mat-list-item
-          *ngFor="let opcion of sidebarItems"
-          [routerLink]="opcion.url"
-          (click)="sidenav.close()">
+         <!-- Desplegable Películas -->
+  <mat-expansion-panel class="menu-expansion">
 
-          <mat-icon matListItemIcon>{{ opcion.icon }}</mat-icon>
-          {{ opcion.label }}
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>movie</mat-icon>
+        <span>Películas</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
 
-        </mat-list-item>
+    <mat-list-item
+      routerLink="/movies/list"
+      (click)="sidenav.close()">
+
+      <mat-icon matListItemIcon>local_movies</mat-icon>
+      Películas populares
+
+    </mat-list-item>
+
+    <mat-list-item
+      routerLink="/movies/favorites"
+      (click)="sidenav.close()">
+
+      <mat-icon matListItemIcon>favorite</mat-icon>
+      Favoritas
+
+    </mat-list-item>
+
+    <mat-list-item
+      routerLink="/movies/watched"
+      (click)="sidenav.close()">
+
+      <mat-icon matListItemIcon>visibility</mat-icon>
+      Vistas
+
+    </mat-list-item>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="menu-expansion">
+
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>movie</mat-icon>
+        <span>Series</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-list-item
+      routerLink="/movies/list"
+      (click)="sidenav.close()">
+
+      <mat-icon matListItemIcon>local_movies</mat-icon>
+      Series populares
+
+    </mat-list-item>
+
+    <mat-list-item>
+
+      <mat-icon matListItemIcon>favorite</mat-icon>
+      Favoritas
+
+    </mat-list-item>
+
+    <mat-list-item>
+
+      <mat-icon matListItemIcon>visibility</mat-icon>
+      Vistas
+
+    </mat-list-item>
+
+  </mat-expansion-panel>
+
+  <!-- Buscador -->
+  <mat-list-item
+    routerLink="/movies/search"
+    (click)="sidenav.close()">
+
+    <mat-icon matListItemIcon>search</mat-icon>
+    Buscador
+
+  </mat-list-item>
+
+  <!-- Gestión de usuarios -->
+  <mat-list-item
+    *ngIf="rolUsuario === 1"
+    routerLink="/users"
+    (click)="sidenav.close()">
+
+    <mat-icon matListItemIcon>group</mat-icon>
+    Gestión de usuarios
+
+  </mat-list-item>
       </mat-nav-list>
 
       <div class="app-version">

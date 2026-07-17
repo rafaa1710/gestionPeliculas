@@ -7,6 +7,7 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { MoviePageComponent } from './pages/movie-page/movie-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
+import { WatchedPageComponent } from './pages/watched-page/watched-page.component';
 
 const routes: Routes = [
   { path: '', component: LayoutPageComponent,   //pagina principal con menu lateral de navegacion
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'favorites',
         component:FavoritesPageComponent
+      },
+      {
+        path: 'watched',
+        component: WatchedPageComponent
       },
       {
         path:'',

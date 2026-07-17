@@ -239,3 +239,49 @@ mat-nav-list {
 ::ng-deep .mat-drawer-inner-container {
   height: 100%;
 }
+
+
+.menu-expansion {
+  margin-bottom: 0.35rem;
+  background: transparent !important;
+  color: #cbd5e1;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+.menu-expansion mat-expansion-panel-header {
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 10px;
+}
+
+.menu-expansion mat-expansion-panel-header:hover {
+  background: rgba(255, 255, 255, 0.07) !important;
+}
+
+.menu-expansion mat-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.menu-expansion mat-panel-title mat-icon {
+  color: #94a3b8;
+}
+
+::ng-deep .menu-expansion .mat-expansion-panel-body {
+  padding: 4px 0 8px !important;
+}
+
+.menu-expansion mat-list-item {
+  margin-left: 12px;
+  width: calc(100% - 12px);
+  height: 44px;
+  border-radius: 8px;
+}
+
+.menu-expansion mat-list-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}

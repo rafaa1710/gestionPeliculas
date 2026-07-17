@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../interfaces/movie.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { WatchedService } from '../../services/watched.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -13,11 +14,12 @@ export class MovieCardComponent {
 
   @Input() movie!: Movie;
   @Input() isFavorite: boolean = false;
-
+  @Input() isWatched: boolean = false;
   constructor(
     private movieService: MoviesService,
     private favoritesService: FavoritesService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private watchedService: WatchedService
   ){}
 
 

@@ -35,12 +35,11 @@ export class WatchedService {
   }
 
 
-  getWatchedMovies(movieId: number): Observable<WatchedResponse> {
+  getWatchedMovies(): Observable<WatchedResponse> {
     return this.http.post<WatchedResponse>(
       WATCHED_API,
        {
         action: 'list',
-        movie_id: movieId,
          email: this.getEmail()
         },
         {
