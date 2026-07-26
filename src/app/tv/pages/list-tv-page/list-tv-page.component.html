@@ -1,0 +1,30 @@
+<h1 class="titulo-populares">Series populares</h1>
+<mat-divider></mat-divider>
+
+<mat-progress-spinner
+  *ngIf="loading"
+  mode="indeterminate"
+  color="primary"
+  diameter="40"
+  style="margin: 1rem auto; display: block;">
+</mat-progress-spinner>
+
+<div class="grid" *ngIf="!loading && series.length > 0">
+  <div
+    *ngFor="let serie of series"
+    class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2">
+    <app-tv-card [serie]="serie"></app-tv-card>
+  </div>
+</div>
+
+<div
+  class="load-more-container"
+  *ngIf="!loading && series.length > 0">
+  <button
+    class="load-more-btn"
+    (click)="loadMore()"
+    [disabled]="loading">
+    <mat-icon>expand_more</mat-icon>
+    {{ loading ? 'Cargando...' : 'Cargar más series' }}
+  </button>
+</div>

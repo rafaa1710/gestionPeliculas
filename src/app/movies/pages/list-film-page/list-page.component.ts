@@ -1,4 +1,4 @@
-import { MoviesService } from './../../services/movies.service';
+import { MoviesService } from '../../services/movies.service';
 import { Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Movie } from '../../interfaces/movie.interface';

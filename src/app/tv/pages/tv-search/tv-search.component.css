@@ -1,0 +1,130 @@
+:host {
+  display: block;
+  min-height: 100vh;
+
+  background: #ababab;
+
+  margin: calc(-1 * clamp(1rem, 2.5vw, 2.25rem)) !important;
+  padding: clamp(1rem, 2.5vw, 2.25rem) !important;
+
+  box-sizing: border-box;
+}
+
+/* ===========================
+   TÍTULO
+=========================== */
+
+.titulo-buscador {
+  display: table;
+
+  margin: 20px auto 34px;
+  padding: 20px 42px;
+
+  background: rgba(15, 23, 42, .82);
+  color: #fff;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+
+  font-size: clamp(1.8rem,3vw,2.3rem);
+  font-weight: 800;
+  letter-spacing: .3px;
+
+  text-align: center;
+
+  box-shadow: 0 14px 34px rgba(0,0,0,.28);
+  backdrop-filter: blur(8px);
+}
+
+.titulo-buscador::after {
+  content: "";
+
+  display: block;
+
+  width: 64px;
+  height: 3px;
+
+  margin: 10px auto 0;
+
+  border-radius: 999px;
+
+
+}
+
+/* ===========================
+   BUSCADOR
+=========================== */
+
+.search-field {
+  width: min(100%, 720px);
+  margin: 0 auto 36px;
+  display: block;
+}
+
+::ng-deep .search-field .mat-mdc-text-field-wrapper {
+  border-radius: 14px;
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 8px 24px rgba(15,23,42,.12);
+}
+
+::ng-deep .search-field input {
+  font-size: 1rem;
+}
+
+::ng-deep .search-field .mat-mdc-form-field-focus-overlay {
+  background: transparent;
+}
+
+/* ===========================
+   SPINNER
+=========================== */
+
+.spinner {
+  display: block;
+  margin: 1rem auto 2rem;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.grid {
+  margin-top: 1rem;
+}
+
+/* ===========================
+   MENSAJE SIN RESULTADOS
+=========================== */
+
+.sin-resultados {
+  margin-top: 50px;
+
+  text-align: center;
+
+  color: #334155;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:700px){
+
+  :host{
+    margin:-1rem -.75rem !important;
+    padding:1rem .75rem !important;
+  }
+
+  .titulo-buscador{
+    padding:16px 24px;
+    margin-bottom:26px;
+  }
+
+  .search-field{
+    margin-bottom:28px;
+  }
+
+}

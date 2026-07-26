@@ -1,0 +1,70 @@
+<section class="search-page">
+
+  <h1 class="titulo-buscador">
+    <mat-icon>search</mat-icon>
+    Buscador de series
+  </h1>
+
+  <mat-form-field class="search-field" appearance="fill">
+    <mat-label>Buscar serie</mat-label>
+
+    <mat-icon matPrefix>search</mat-icon>
+
+    <input
+      matInput
+      type="search"
+      [formControl]="searchInput"
+      placeholder="Introduce el título de una serie"
+      autocomplete="off"
+      aria-label="Buscar series por título">
+
+    <button
+      *ngIf="searchInput.value"
+      mat-icon-button
+      matSuffix
+      type="button"
+      aria-label="Limpiar búsqueda"
+      (click)="clearSearch()">
+
+      <mat-icon>close</mat-icon>
+
+    </button>
+
+  </mat-form-field>
+
+  <div class="status" *ngIf="loading">
+    <mat-spinner diameter="42"></mat-spinner>
+    <span>Buscando series...</span>
+  </div>
+
+  <div
+    class="grid mt-4"
+    *ngIf="!loading && series.length > 0">
+
+    <div
+      class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2"
+      *ngFor="let serie of series">
+
+      <app-tv-card [serie]="serie"></app-tv-card>
+
+    </div>
+
+  </div>
+
+  <p
+    class="status empty"
+    *ngIf="!loading && searched && series.length === 0">
+
+    No se encontraron series con ese título.
+
+  </p>
+
+  <p
+    class="search-hint"
+    *ngIf="!loading && !searched">
+
+
+
+  </p>
+
+</section>

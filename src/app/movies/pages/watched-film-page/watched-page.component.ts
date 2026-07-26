@@ -38,7 +38,7 @@ export class WatchedPageComponent implements OnInit {
           return;
         }
 
-        const ids = res.data.map(id => Number(id));
+        const ids = [...new Set(res.data.map(id => Number(id)))];
 
         if (ids.length === 0) {
           this.watchedMovies = [];

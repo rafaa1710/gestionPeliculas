@@ -14,7 +14,7 @@
 
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <mat-icon>movie</mat-icon>
+        <mat-icon>theaters</mat-icon>
         <span>Películas</span>
       </mat-panel-title>
     </mat-expansion-panel-header>
@@ -50,35 +50,48 @@
 
   <mat-expansion-panel class="menu-expansion">
 
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <mat-icon>movie</mat-icon>
-        <span>Series</span>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+     <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>tv</mat-icon>
+      <span>Series</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-    <mat-list-item
-      routerLink="/movies/list"
-      (click)="sidenav.close()">
+  <mat-list-item
+    routerLink="/tv/list"
+    (click)="sidenav.close()">
 
-      <mat-icon matListItemIcon>local_movies</mat-icon>
-      Series populares
+    <mat-icon matListItemIcon>live_tv</mat-icon>
+    Series populares
 
-    </mat-list-item>
+  </mat-list-item>
 
-    <mat-list-item>
+  <mat-list-item
+    routerLink="/tv/search"
+    (click)="sidenav.close()">
 
-      <mat-icon matListItemIcon>favorite</mat-icon>
-      Favoritas
+    <mat-icon matListItemIcon>search</mat-icon>
+    Buscar series
 
-    </mat-list-item>
+  </mat-list-item>
 
-    <mat-list-item>
+  <mat-list-item
+    routerLink="/tv/favorites"
+    (click)="sidenav.close()">
 
-      <mat-icon matListItemIcon>visibility</mat-icon>
-      Vistas
+    <mat-icon matListItemIcon>favorite</mat-icon>
+    Favoritas
 
-    </mat-list-item>
+  </mat-list-item>
+
+  <mat-list-item
+    routerLink="/tv/watched"
+    (click)="sidenav.close()">
+
+    <mat-icon matListItemIcon>visibility</mat-icon>
+    Vistas
+
+  </mat-list-item>
 
   </mat-expansion-panel>
 

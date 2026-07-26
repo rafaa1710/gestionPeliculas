@@ -1,0 +1,16 @@
+<ng-container *ngIf="serie">
+  <mat-card>
+    <a (click)="goToDetails()" style="cursor: pointer;">
+      <img
+        mat-card-image
+        class="poster"
+        [src]="imageUrl"
+        [alt]="serie.name">
+
+      <mat-card-content>
+        <h2 class="movie-title">{{ serie.name }}</h2>
+        <p class="movie-release_date">{{ serie.first_air_date | date:'yyyy' }}</p>
+      </mat-card-content>
+    </a>
+  </mat-card>
+</ng-container>
