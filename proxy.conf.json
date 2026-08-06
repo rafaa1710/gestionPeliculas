@@ -1,0 +1,8 @@
+{
+  "/app.radfpd.es/api": {
+    "target": "http://localhost:8000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

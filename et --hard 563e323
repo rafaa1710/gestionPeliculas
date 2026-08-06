@@ -1,0 +1,40 @@
+[33m1d2321a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m aniado las tv y movies  fav seleccionadas que se actualicen en list
+[33m3f82562[m creo el tv-favoritas
+[33m563e323[m creo Tv y componentes search, tv-page y list-page
+[33mad6ad7a[m creo watched-page y modifico estilos tambien creo el desplegable series pero dentro tiene lo de pelis
+[33mceeef69[m agrego boton peliculas vistas todo funciona
+[33m8166a1f[m cambio estilos y aniado version de app en desplegable de menu
+[33m5fe7031[m aniado hover de cerrar sesion al logout
+[33m7d6b4af[m creo boton de cargar mas peliculas en peliculas populares
+[33ma852d0c[m modifico estilos en usuarios
+[33m6e95983[m modifico estilos en buscador,listas y favoritos
+[33mea0bd7a[m hago cambios en card de peliculas y estilos
+[33mce63914[m Modifico README añadiendo referencia backend
+[33m0f9a254[m Modifico README
+[33m985a106[m aniado .json
+[33m526147a[m fin Proyecto
+[33m9589986[m fin de modificaciones terminada
+[33m587b2f5[m modifico archivos
+[33mae2f354[m modifico ngOnInit edit.ts
+[33m31d9514[m fin
+[33m6028246[m edit
+[33m9383267[m encripto rutas
+[33ma9c33ed[m snacbar restantes
+[33me4c4732[m login snackbar
+[33mf5eea13[m estilos fondos usuario edit
+[33m62f5f10[m estilos fondos usuario delete
+[33m91b2f58[m estilos fondos usuario añadir
+[33m0bc5b87[m estilos fondos usuario list
+[33mfa5727d[m estilos fondos
+[33m3a64ab1[m estilos nuevos
+[33md8163fd[m comentarios
+[33m32eb702[m usuarios
+[33me8c412d[m gestion de usuarios
+[33mf327eb0[m cambios colores
+[33mfccb373[m cambio environment a mv
+[33m57c9b71[m funciona todo
+[33m2019725[m casi casi
+[33medd90cf[m casi casi
+[33mca76906[m voy avanzando 13
+[33me336523[m Versión inicial
+[33m43cb5d0[m initial commit

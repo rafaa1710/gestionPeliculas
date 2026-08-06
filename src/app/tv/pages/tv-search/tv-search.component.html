@@ -1,7 +1,6 @@
 <section class="search-page">
 
-  <h1 class="titulo-buscador">
-    <mat-icon>search</mat-icon>
+  <h1 class="titulo-buscador"><mat-icon>search</mat-icon>
     Buscador de series
   </h1>
 
@@ -14,32 +13,18 @@
       matInput
       type="search"
       [formControl]="searchInput"
-      placeholder="Introduce el título de una serie"
-      autocomplete="off"
-      aria-label="Buscar series por título">
+      (input)="searchSeries()"
+      placeholder="Introduce el título de una serie">
 
-    <button
-      *ngIf="searchInput.value"
-      mat-icon-button
-      matSuffix
-      type="button"
-      aria-label="Limpiar búsqueda"
-      (click)="clearSearch()">
 
-      <mat-icon>close</mat-icon>
-
-    </button>
 
   </mat-form-field>
 
-  <div class="status" *ngIf="loading">
-    <mat-spinner diameter="42"></mat-spinner>
-    <span>Buscando series...</span>
-  </div>
+
 
   <div
     class="grid mt-4"
-    *ngIf="!loading && series.length > 0">
+    *ngIf="series.length > 0">
 
     <div
       class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2"
@@ -51,20 +36,6 @@
 
   </div>
 
-  <p
-    class="status empty"
-    *ngIf="!loading && searched && series.length === 0">
 
-    No se encontraron series con ese título.
-
-  </p>
-
-  <p
-    class="search-hint"
-    *ngIf="!loading && !searched">
-
-
-
-  </p>
 
 </section>
