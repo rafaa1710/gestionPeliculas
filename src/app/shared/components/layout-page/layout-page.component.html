@@ -46,6 +46,15 @@
 
     </mat-list-item>
 
+    <mat-list-item
+    routerLink="/movies/search"
+    (click)="sidenav.close()">
+
+    <mat-icon matListItemIcon>search</mat-icon>
+    Buscar Películas
+
+  </mat-list-item>
+
   </mat-expansion-panel>
 
   <mat-expansion-panel class="menu-expansion">
@@ -95,15 +104,7 @@
 
   </mat-expansion-panel>
 
-  <!-- Buscador -->
-  <mat-list-item
-    routerLink="/movies/search"
-    (click)="sidenav.close()">
 
-    <mat-icon matListItemIcon>search</mat-icon>
-    Buscador
-
-  </mat-list-item>
 
   <!-- Gestión de usuarios -->
   <mat-list-item
