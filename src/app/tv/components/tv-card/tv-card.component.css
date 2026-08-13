@@ -39,6 +39,14 @@ mat-card:hover .poster {
   transform: scale(1.03);
 }
 
+.favorite-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9);
+}
+
 mat-card-content {
   flex: 1;
   display: flex;

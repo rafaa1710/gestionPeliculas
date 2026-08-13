@@ -13,10 +13,11 @@
     </a>
 
     <button mat-icon-button
+            class="favorite-button"
             (click)="toggleFavorite(); $event.stopPropagation()"
-            style="position: absolute; top: 8px; right: 8px"
             [color]="isFavorite ? 'warn' : 'primary'"
-            matTooltip="{{ isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos' }}">
+            [matTooltip]="isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'"
+            [attr.aria-label]="isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'">
       <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
     </button>
 

@@ -10,7 +10,7 @@ export interface FavoritesResponse {
 }
 
 
-const FAVORITES_API = `${URL_API}/tv_favoritas.php`;
+const FAVORITES_API = `${URL_API}/tv-favoritas.php`;
 
 @Injectable({
   providedIn: 'root'

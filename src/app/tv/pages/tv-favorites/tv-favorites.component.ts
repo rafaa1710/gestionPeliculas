@@ -7,6 +7,7 @@ import {
   FavoritesTvService
 } from '../../service/favorites-tv.service';
 import { Tv } from '../../interface/tv.interface';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-tv-favorites',
@@ -17,6 +18,8 @@ export class TvFavoritesComponent implements OnInit {
 
   public favorites: Tv[] = [];
   public loading = false;
+
+
 
   constructor(
     private favoritesService: FavoritesTvService,
@@ -80,4 +83,7 @@ export class TvFavoritesComponent implements OnInit {
       this.favorites = this.favorites.filter(item => item.id !== serie.id);
     }
   }
+
+
+
 }

@@ -1,5 +1,5 @@
 import { FavoritesService} from './../../services/favorites.service';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../interfaces/movie.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,6 +15,9 @@ export class MovieCardComponent {
   @Input() movie!: Movie;
   @Input() isFavorite: boolean = false;
   @Input() isWatched: boolean = false;
+
+  @Output()
+  public favoriteChange = new EventEmitter<boolean>();
   constructor(
     private movieService: MoviesService,
     private favoritesService: FavoritesService,
@@ -29,18 +32,32 @@ export class MovieCardComponent {
   }
 
 
-  toggleFavorite():void{
-    if(this.isFavorite){
-      this.favoritesService.removeFromFavorites(this.movie.id).subscribe(() => {
-        this.isFavorite = false;
-        this.snackBar.open('Pelicula eliminada de favoritos','Cerrar', {duration:2000})
-      })
-    }else{
-      this.favoritesService.addToFavorites(this.movie.id).subscribe(() =>{
-        this.isFavorite = true;
-        this.snackBar.open('Pelicula añadida a favoritos','Cerrar', {duration:2000})
-      })
-    }
+  toggleFavorite(): void {
+    this.favoritesService.toggleFavorite(this.movie.id, this.isFavorite).subscribe({
+      next: (response) => {
+        if (!response.status) {
+          this.snackBar.open(response.message || 'No se pudo actualizar favoritos', 'Cerrar', {
+            duration: 2000
+          });
+          return;
+        }
+
+        this.isFavorite = !this.isFavorite;
+        this.favoriteChange.emit(this.isFavorite);
+        this.snackBar.open(
+          this.isFavorite
+            ? 'Película añadida a favoritos'
+            : 'Película eliminada de favoritos',
+          'Cerrar',
+          { duration: 2000 }
+        );
+      },
+      error: () => {
+        this.snackBar.open('No se pudo actualizar favoritos', 'Cerrar', {
+          duration: 2000
+        });
+      }
+    });
   }
 
 }

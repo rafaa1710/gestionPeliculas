@@ -9,6 +9,8 @@ import { TvCardComponent } from './components/tv-card/tv-card.component';
 import { TvPageComponent } from './pages/tv-page/tv-page.component';
 import { TvSearchComponent } from './pages/tv-search/tv-search.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TvFavoritesComponent } from './pages/tv-favorites/tv-favorites.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -16,14 +18,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListTvPageComponent,
     TvCardComponent,
     TvPageComponent,
-    TvSearchComponent
+    TvSearchComponent,
+    TvFavoritesComponent
   ],
   imports: [
     CommonModule,
     TvRoutingModule,
     MaterialModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule
   ]
 })
 export class TvModule { }

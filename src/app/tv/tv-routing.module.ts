@@ -4,6 +4,7 @@ import { ListTvPageComponent } from './pages/list-tv-page/list-tv-page.component
 import { LayoutPageComponent } from '../shared/components/layout-page/layout-page.component';
 import { TvPageComponent } from './pages/tv-page/tv-page.component';
 import { TvSearchComponent } from './pages/tv-search/tv-search.component';
+import { TvFavoritesComponent } from './pages/tv-favorites/tv-favorites.component';
 
 const routes: Routes = [
   {
@@ -19,9 +20,15 @@ const routes: Routes = [
         component: TvSearchComponent
       },
       {
+        path: 'favorites',
+        component: TvFavoritesComponent
+      },
+      {
         path: ':id',
         component: TvPageComponent
       },
+
+
       {
         path: '',
         redirectTo: 'list',
