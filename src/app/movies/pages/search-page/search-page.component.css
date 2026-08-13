@@ -20,6 +20,7 @@
 .titulo-buscador {
   display: inline-block;
 
+  width: min(100%, 720px);
   margin: 20px auto 32px;
   padding: 12px 28px;
 

@@ -17,6 +17,7 @@
 .titulo-buscador {
   display: table;
 
+  width: min(100%, 720px);
   margin: 20px auto 34px;
   padding: 20px 42px;
 
