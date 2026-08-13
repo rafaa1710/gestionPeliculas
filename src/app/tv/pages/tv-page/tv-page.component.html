@@ -62,6 +62,26 @@
       {{ serie.overview }}
     </p>
 
+    <button
+      mat-raised-button
+      class="watched-button"
+      [class.watched]="isWatched"
+      [disabled]="updatingWatched"
+      (click)="toggleWatched()">
+
+      <mat-icon>
+        {{ isWatched ? 'visibility' : 'visibility_off' }}
+      </mat-icon>
+
+      {{
+        updatingWatched
+          ? 'Actualizando...'
+          : isWatched
+            ? 'Serie vista'
+            : 'Marcar como vista'
+      }}
+    </button>
+
   </div>
 
 </div>

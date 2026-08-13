@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Tv } from '../../interface/tv.interface';
 import { FavoritesTvService } from '../../service/favorites-tv.service';
+import { WatchedService } from '../../service/watched.service';
 
 @Component({
   selector: 'app-tv-card',
@@ -17,12 +18,19 @@ export class TvCardComponent {
   @Input()
   public isFavorite = false;
 
+  @Input()
+  public isWatched = false;
+
+  @Output()
+  public watchedChange = new EventEmitter<boolean>();
+
   @Output()
   public favoriteChange = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
     private favoritesService: FavoritesTvService,
+    private watchedService: WatchedService,
     private snackBar: MatSnackBar
   ) {}
 

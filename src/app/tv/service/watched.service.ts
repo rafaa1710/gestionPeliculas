@@ -11,7 +11,7 @@ export interface WatchedResponse {
   data: number[] | null;
 }
 
-const WATCHED_API = `${URL_API}/tv_vistas.php`;
+const WATCHED_API = `${URL_API}/tv-vistas.php`;
 
 @Injectable({
   providedIn: 'root'

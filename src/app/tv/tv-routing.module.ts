@@ -5,6 +5,7 @@ import { LayoutPageComponent } from '../shared/components/layout-page/layout-pag
 import { TvPageComponent } from './pages/tv-page/tv-page.component';
 import { TvSearchComponent } from './pages/tv-search/tv-search.component';
 import { TvFavoritesComponent } from './pages/tv-favorites/tv-favorites.component';
+import { TvWatchedComponent } from './pages/tv-watched/tv-watched.component';
 
 const routes: Routes = [
   {
@@ -24,11 +25,13 @@ const routes: Routes = [
         component: TvFavoritesComponent
       },
       {
+        path: 'watched',
+        component: TvWatchedComponent
+      },
+      {
         path: ':id',
         component: TvPageComponent
       },
-
-
       {
         path: '',
         redirectTo: 'list',

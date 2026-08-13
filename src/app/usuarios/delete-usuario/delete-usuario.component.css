@@ -16,6 +16,7 @@
   text-align: center;
 
   border-top: 8px solid #ff4d4d;
+  box-sizing: border-box;
 }
 
 /* Título */
@@ -38,8 +39,36 @@
 /* Botones */
 .acciones {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    width: calc(100% - 24px);
+    margin: 32px auto;
+    padding: 28px 20px;
+  }
+
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .mensaje {
+    max-width: 100%;
+  }
+
+  .acciones {
+    width: 100%;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .acciones button {
+    width: 100%;
+    min-height: 44px;
+  }
 }
 
 /* Botón cancelar */

@@ -11,6 +11,7 @@ import { TvSearchComponent } from './pages/tv-search/tv-search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TvFavoritesComponent } from './pages/tv-favorites/tv-favorites.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TvWatchedComponent } from './pages/tv-watched/tv-watched.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     TvCardComponent,
     TvPageComponent,
     TvSearchComponent,
-    TvFavoritesComponent
+    TvFavoritesComponent,
+    TvWatchedComponent
   ],
   imports: [
     CommonModule,

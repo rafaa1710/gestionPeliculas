@@ -1,4 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+app-layout-page mat-sidenav-content {
+  min-width: 0;
+}
+
+app-layout-page mat-sidenav-content > mat-toolbar {
+  gap: 0.5rem;
+}
+
+app-layout-page .content-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  app-layout-page mat-sidenav-content > mat-toolbar > span {
+    min-width: 0;
+  }
+
+  app-layout-page mat-sidenav-content > mat-toolbar > div {
+    flex: 0 0 auto;
+  }
+
+  app-layout-page mat-sidenav-content > mat-toolbar > div > mat-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  app-layout-page mat-sidenav-content > mat-toolbar {
+    min-height: 56px;
+    padding-inline: 0.25rem;
+  }
+
+  app-layout-page mat-sidenav-content > mat-toolbar > span {
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+
+  app-layout-page .content-wrapper {
+    min-height: calc(100vh - 56px);
+    padding: 0.75rem 0.5rem;
+  }
+}
