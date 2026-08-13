@@ -36,7 +36,10 @@ export class MoviePageComponent implements OnInit{
 
 
     this.moviesService.movieById(+id).subscribe({
-      next: (movie) => this.movie = movie,
+      next: (movie) => {
+        this.movie = movie;
+        this.checkWatchedStatus();
+      },
       error: (err) => {
         console.log('Error al obtener los detalles de la pelicula')
         alert('No se ha podico cargar la información de la pelicula')

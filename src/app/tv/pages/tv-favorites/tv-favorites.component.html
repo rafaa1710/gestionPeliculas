@@ -1,0 +1,35 @@
+<h1 class="titulo-favoritos">Series favoritas</h1>
+
+<mat-divider></mat-divider>
+
+<mat-spinner
+  *ngIf="loading"
+  diameter="40"
+  style="margin: 2rem auto; display: block">
+</mat-spinner>
+
+<div
+  class="grid"
+  *ngIf="!loading && favorites.length > 0">
+
+  <div
+    *ngFor="let serie of favorites"
+    class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2">
+
+    <app-tv-card
+      [serie]="serie"
+      [isFavorite]="true"
+      (favoriteChange)="onFavoriteChange(serie, $event)">
+    </app-tv-card>
+
+  </div>
+
+</div>
+
+<p
+  *ngIf="!loading && favorites.length === 0"
+  class="text-center mt-4">
+
+  No tienes series favoritas.
+
+</p>
