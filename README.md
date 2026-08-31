@@ -186,6 +186,6 @@ Angular abrira el entorno de Karma para ejecutar las pruebas configuradas.
 
 ## Autor
 
-Proyecto desarrollado por Rafael Garcia.
+Proyecto desarrollado por Rafael Garcia Cambron.
 
 
