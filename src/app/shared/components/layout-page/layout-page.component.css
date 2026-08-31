@@ -49,6 +49,22 @@ mat-nav-list mat-list-item {
   font-weight: 500;
 }
 
+.account-icon {
+  width: 28px;
+  height: 28px;
+  font-size: 28px;
+  line-height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 10px;
+
+  color: #e2e8f0;
+  overflow: visible;
+}
+
 mat-nav-list mat-list-item:hover,
 mat-nav-list mat-list-item:focus-visible {
   background: rgba(255, 255, 255, 0.07);
