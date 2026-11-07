@@ -95,7 +95,7 @@
 
 .col-span-2 h1 {
   margin: 0 0 14px;
-  color: #0f172a;
+  color: #0c0c0c !important;
   font-size: clamp(2rem, 3.4vw, 3.35rem);
   font-weight: 800;
   line-height: 1.08;
@@ -117,7 +117,7 @@
 
 .col-span-2 p:first-of-type {
   margin-bottom: 4px;
-  color: #64748b;
+  color: #929394;
   font-size: 1.05rem;
 }
 
@@ -246,6 +246,6 @@ mat-spinner {
 }
 
 .col-span-2 p:first-of-type {
-  color: #64748b !important;
+  color: #929394 !important;
 }
 }
