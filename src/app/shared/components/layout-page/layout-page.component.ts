@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { AuthService } from '../../../auth/services/auth.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -11,6 +11,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class LayoutPageComponent {
   nombrePublico: string='';
   rolUsuario: number = 0;
+  sidenavMode: 'side' | 'over' = window.innerWidth <= 700 ? 'over' : 'side';
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.sidenavMode = window.innerWidth <= 700 ? 'over' : 'side';
+  }
 
   //  NECESARIO PARA QUE EL HTML NO DE ERROR
   sidebarItems = [

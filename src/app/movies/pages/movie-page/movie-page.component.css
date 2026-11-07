@@ -8,10 +8,10 @@
   box-sizing: border-box;
 
   background:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 34rem),
-    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+    radial-gradient(ellipse at 50% -12%, rgba(189, 129, 47, .16), transparent 42rem),
+    linear-gradient(145deg, #111923 0%, #0b1119 55%, #131923 100%);
 
-  color: #172033;
+  color: #f8fafc;
 }
 
 @media (max-width: 767px) {
@@ -176,7 +176,7 @@ mat-spinner {
   }
 
   .movie-poster {
-    width: min(100%, 310px);
+    width: min(100%, 240px);
   }
 
   .col-span-2 {
@@ -240,5 +240,12 @@ mat-spinner {
 .watched-button:disabled {
   opacity: 0.65;
   cursor: not-allowed;
+}
+.col-span-2 p {
+  color: #929394 !important;
+}
+
+.col-span-2 p:first-of-type {
+  color: #64748b !important;
 }
 }

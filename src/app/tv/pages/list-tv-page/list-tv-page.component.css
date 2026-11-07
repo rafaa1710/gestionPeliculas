@@ -1,6 +1,9 @@
 :host {
   display: block;
-  background-color: #ababab;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(56, 189, 248, .16), transparent 34rem),
+    radial-gradient(ellipse at 88% 30%, rgba(99, 102, 241, .16), transparent 38rem),
+    linear-gradient(145deg, #0b1120 0%, #111827 48%, #172033 100%);
   min-height: 100vh;
   margin: calc(-1 * clamp(1rem, 2.5vw, 2.25rem)) !important;
   padding: clamp(1rem, 2.5vw, 2.25rem) !important;
@@ -49,6 +52,7 @@ h1::after {
   display: block;
   margin: 8px auto 0 auto;
   border-radius: 2px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
 }
 
 

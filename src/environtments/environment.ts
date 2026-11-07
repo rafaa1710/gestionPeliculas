@@ -5,6 +5,6 @@ export const environment = {
 
 
 export const URL_BASE = 'http://localhost:8000';
-export const URL_API = `${URL_BASE}/app.radfpd.es/api/private`;
+export const URL_API = `${URL_BASE}/appCineLog/api/private`;
 
 

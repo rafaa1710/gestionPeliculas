@@ -1,4 +1,4 @@
-<h1 class="titulo-favoritos">Series favoritas</h1>
+<h1 class="titulo-favoritos">Mis series favoritas</h1>
 
 <mat-spinner
   *ngIf="loading"
@@ -24,10 +24,8 @@
 
 </div>
 
-<p
-  *ngIf="!loading && favorites.length === 0"
-  class="text-center mt-4">
-
-  No tienes series favoritas.
-
-</p>
+<section *ngIf="!loading && favorites.length === 0" class="empty-state" aria-live="polite">
+  <mat-icon aria-hidden="true">live_tv</mat-icon>
+  <h2>Aún no tienes series favoritas</h2>
+  <p>Guarda las series que quieras tener siempre a mano.</p>
+</section>

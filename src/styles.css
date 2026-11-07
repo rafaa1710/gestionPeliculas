@@ -45,6 +45,57 @@ app-layout-page .content-wrapper {
   min-width: 0;
 }
 
+/* Shared responsive grid used by movie and series lists. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(80%, 360px), 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  margin-inline: 0;
+}
+
+.grid > div {
+  min-width: 0;
+}
+
+/* The templates use breakpoint-style utility class names without a utility CSS
+   framework. Let the shared grid handle their layout at every viewport size. */
+.grid > div[class*="col-"] {
+  width: auto;
+  max-width: none;
+  padding: 0;
+}
+
+:where(app-movie-card, app-tv-card) {
+  display: block;
+  min-width: 0;
+  height: 100%;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid {
+    gap: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 @media (max-width: 700px) {
   app-layout-page mat-sidenav-content > mat-toolbar > span {
     min-width: 0;

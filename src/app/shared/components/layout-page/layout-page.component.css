@@ -82,12 +82,6 @@ mat-nav-list mat-icon {
   color: var(--layout-muted);
 }
 
-mat-nav-list mat-list-item:hover mat-icon,
-mat-nav-list mat-list-item:focus-visible mat-icon,
-mat-nav-list mat-list-item.mdc-list-item--activated mat-icon {
-  color: #71fb88;
-}
-
 mat-sidenav-content {
   min-height: 100vh;
   background: transparent;

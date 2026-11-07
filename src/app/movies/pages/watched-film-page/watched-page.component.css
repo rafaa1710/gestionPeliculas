@@ -1,186 +1,55 @@
 :host {
+  --collection-accent: #e6b85c;
   display: block;
   min-height: 100vh;
-
-  margin: calc(-1 * clamp(1rem, 2.5vw, 2.25rem));
-  padding: clamp(1rem, 2.5vw, 2.25rem);
-
+  margin: calc(-1 * clamp(1rem, 2.5vw, 2.25rem)) !important;
+  padding: clamp(1.25rem, 3vw, 2.75rem) !important;
   box-sizing: border-box;
-  background: #ababab;
+  background:
+    radial-gradient(ellipse at 50% -12%, rgba(189, 129, 47, .16), transparent 42rem),
+    linear-gradient(145deg, #111923 0%, #0b1119 55%, #131923 100%);
 }
 
-
-/* ===========================
-   TÍTULO
-=========================== */
+.background-wrapper { width: 100%; max-width: 1440px; margin: 0 auto; }
 
 .titulo-vistas {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-
-  width: min(90%, 720px);
-
-  margin: 20px auto 38px;
-  padding: 18px 32px;
-
-  color: #ffffff;
-  background: rgba(15, 23, 42, 0.88);
-
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 14px;
-
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  line-height: 1.2;
-
+  width: fit-content;
+  max-width: 100%;
+  margin: 8px auto 30px;
+  padding: 0 0 14px;
+  color: #f8fafc;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -.035em;
   text-align: center;
-
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(8px);
-
-  box-sizing: border-box;
 }
-
-
-/* Icono del título */
-
-.titulo-vistas mat-icon {
-  width: 32px;
-  height: 32px;
-
-  font-size: 32px;
-  line-height: 32px;
-
-  color: #d4c16d;
-}
-
-
-/* Línea decorativa debajo del título */
 
 .titulo-vistas::after {
   content: "";
-
-  position: absolute;
-
-  width: 64px;
+  display: block;
+  width: 48px;
   height: 3px;
-
-  margin-top: 55px;
-
-  border-radius: 999px;
-
+  margin: 12px auto 0;
+  border-radius: 99px;
+  background: var(--collection-accent);
 }
-
-
-/* ===========================
-   GRID DE SERIES
-=========================== */
-
-.grid {
-  width: 100%;
-  margin-top: 1rem;
-}
-
-
-/* ===========================
-   ESTADO VACÍO
-=========================== */
 
 .empty-state {
   max-width: 520px;
-
-  margin: 70px auto;
-  padding: 42px 32px;
-
+  margin: 64px auto;
+  padding: 38px 28px;
   text-align: center;
-
-  background: rgba(255, 255, 255, 0.92);
-
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 18px;
-
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
-
-  box-sizing: border-box;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  color: #cbd5e1;
 }
 
-
-/* Icono estado vacío */
-
-.empty-state mat-icon {
-  width: 60px;
-  height: 60px;
-
-  font-size: 60px;
-  line-height: 60px;
-
-  color: #64748b;
-}
-
-
-/* Título estado vacío */
-
-.empty-state h2 {
-  margin: 18px 0 8px;
-
-  color: #111827;
-
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-
-/* Texto estado vacío */
-
-.empty-state p {
-  margin: 0;
-
-  color: #64748b;
-
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-
-/* ===========================
-   RESPONSIVE
-=========================== */
+.empty-state mat-icon { color: var(--collection-accent); }
+.empty-state h2 { color: #f8fafc; }
 
 @media (max-width: 700px) {
-
-  :host {
-    margin: -1rem -0.75rem;
-    padding: 1rem 0.75rem;
-  }
-
-  .titulo-vistas {
-    width: 100%;
-
-    margin-top: 12px;
-    margin-bottom: 30px;
-
-    padding: 16px 20px;
-
-    font-size: 1.6rem;
-  }
-
-  .titulo-vistas mat-icon {
-    width: 28px;
-    height: 28px;
-
-    font-size: 28px;
-    line-height: 28px;
-  }
-
-  .titulo-vistas::after {
-    margin-top: 49px;
-  }
-
-  .empty-state {
-    margin: 45px auto;
-    padding: 32px 20px;
-  }
+  :host { margin: -1rem -.75rem !important; padding: 1.25rem .75rem !important; }
+  .titulo-vistas { margin: 4px auto 24px; }
 }
